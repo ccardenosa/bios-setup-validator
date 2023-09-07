@@ -1,0 +1,42 @@
+dell:
+  vars:
+    bios_attributes:
+      HyperThreading:
+        vendor_label: LogicalProc
+        value:
+      Boot_Mode:
+        vendor_label: BootMode
+        value:
+      HyperTransport:
+        vendor_label: ""
+        value:
+      CPU_Power_and_Performance_Policy:
+        vendor_label: ProcPwrPerf
+        value:
+      Uncore_Frequency_Scaling:
+        vendor_label: CpuInterconnectBusLinkPower
+      Uncore_Frequency:
+        vendor_label: UncoreFrequency
+      Performance_P_limit:
+        vendor_label: ProcCStates
+      Enhanced_Intel_SpeedStep_Tech:
+        vendor_label:
+      Intel_Turbo_Boost_Technology:
+        vendor_label:
+      Intel_Configurable_TDP:
+        vendor_label:
+      Configurable_TDP_Level:
+        vendor_label: ProcConfigTdp
+      Energy_Efficient_Turbo:
+        vendor_label:
+      Hardware_P_States:
+        vendor_label: CollaborativeCpuPerfCtrl
+        value:
+      Package_C_State:
+      C1E:
+        vendor_label: ProcC1E
+      Processor_C6:
+        value:
+      Sub_NUMA_Clustering:
+        vendor_label: SubNumaCluster
+        value:

@@ -1,0 +1,5416 @@
+Attributes:
+- AttributeName: TCG003
+  DefaultValue: Enable
+  DisplayName: TPM SUPPORT
+  HelpText: Enables or Disables BIOS support for security device. O.S. will not show
+    Security Device. TCG EFI protocol and INT1A interface will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: TCG023
+  DefaultValue: Disabled
+  DisplayName: '  Disable Block Sid'
+  HelpText: '  Override to allow SID authentication in TCG Storage device'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: TCG001
+  DefaultValue: Enabled
+  DisplayName: '  TPM State'
+  HelpText: 'Enable/Disable Security Device. NOTE: Your Computer will reboot during
+    restart in order to change State of the Device.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG006
+  DefaultValue: None
+  DisplayName: Pending operation
+  HelpText: 'Schedule an Operation for the Security Device. NOTE: Your Computer will
+    reboot during restart in order to change State of Security Device.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: TPM Clear
+    ValueName: TPM Clear
+- AttributeName: TCG004
+  DefaultValue: Enable
+  DisplayName: TPM SUPPORT
+  HelpText: Enables or Disables BIOS support for security device. O.S. will not show
+    Security Device. TCG EFI protocol and INT1A interface will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: TCG002
+  DefaultValue: Enabled
+  DisplayName: '  TCM State'
+  HelpText: 'Enable/Disable Security Device. NOTE: Your Computer will reboot during
+    restart in order to change State of the Device.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG016
+  DefaultValue: Auto
+  DisplayName: '  Device Select'
+  HelpText: 'TPM 1.2 will restrict support to TPM 1.2 devices, TPM 2.0 will restrict
+    support to TPM 2.0 devices, Auto will support both with the default set to TPM
+    2.0 devices if not found, TPM 1.2 devices will be enumerated '
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: TPM 1.2
+    ValueName: TPM 1.2
+  - ValueDisplayName: TPM 2.0
+    ValueName: TPM 2.0
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: TCG017
+  DefaultValue: Enabled
+  DisplayName: '  SHA-1 PCR Bank'
+  HelpText: Enable or Disable SHA-1 PCR Bank
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG018
+  DefaultValue: Enabled
+  DisplayName: '  SHA256 PCR Bank'
+  HelpText: Enable or Disable SHA256 PCR Bank
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG019
+  DefaultValue: Disabled
+  DisplayName: '  SHA384 PCR Bank'
+  HelpText: Enable or Disable SHA384 PCR Bank
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG020
+  DefaultValue: Disabled
+  DisplayName: '  SHA512 PCR Bank'
+  HelpText: Enable or Disable SHA512 PCR Bank
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG021
+  DefaultValue: Disabled
+  DisplayName: '  SM3_256 PCR Bank'
+  HelpText: Enable or Disable SM3_256 PCR Bank
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG007
+  DefaultValue: None
+  DisplayName: '  Pending operation'
+  HelpText: 'Schedule an Operation for the Security Device. NOTE: Your Computer will
+    reboot during restart in order to change State of Security Device.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: TPM Clear
+    ValueName: TPM Clear
+- AttributeName: TCG011
+  DefaultValue: Enabled
+  DisplayName: '  Platform Hierarchy'
+  HelpText: Enable or Disable Platform Hierarchy
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG012
+  DefaultValue: Enabled
+  DisplayName: '  Storage Hierarchy'
+  HelpText: Enable or Disable Storage Hierarchy
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG013
+  DefaultValue: Enabled
+  DisplayName: '  Endorsement Hierarchy'
+  HelpText: Enable or Disable Endorsement Hierarchy
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: TCG010
+  DefaultValue: TCG_2
+  DisplayName: '  TPM 2.0 UEFI Spec Version'
+  HelpText: 'Select the TCG2 Spec Version Support,     TCG_1_2: the Compatible mode
+    for Win8/Win10,     TCG_2: Support new TCG2 protocol and event format for Win10
+    or later'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: TCG_1_2
+    ValueName: TCG_1_2
+  - ValueDisplayName: TCG_2
+    ValueName: TCG_2
+- AttributeName: TCG022
+  DefaultValue: '1.3'
+  DisplayName: '  Physical Presence Spec Version'
+  HelpText: '  Select to Tell O.S. to support PPI Spec Version 1.2 or 1.3. Note some
+    HCK tests might not support 1.3.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '1.2'
+    ValueName: '1.2'
+  - ValueDisplayName: '1.3'
+    ValueName: '1.3'
+- AttributeName: TCG014
+  DefaultValue: CRB
+  DisplayName: '  TPM 2.0 InterfaceType'
+  HelpText: '  Select the Communication Interface to TPM 20 Device.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: CRB
+    ValueName: CRB
+  - ValueDisplayName: TIS
+    ValueName: TIS
+- AttributeName: ACPI004
+  DefaultValue: false
+  DisplayName: Enable ACPI Auto Configuration
+  HelpText: Enables or Disables BIOS ACPI Auto Configuration.
+  ReadOnly: false
+  ResetRequired: false
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: ACPI002
+  DefaultValue: false
+  DisplayName: Enable Hibernation
+  HelpText: Enables or Disables System ability to Hibernate (OS/S4 Sleep State). This
+    option may not be effective with some operating systems.
+  ReadOnly: false
+  ResetRequired: false
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: REDF000
+  DefaultValue: Enabled
+  DisplayName: Redfish
+  HelpText: Enable/Disable AMI Redfish
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: REDF001
+  DefaultValue: Basic Authentication
+  DisplayName: Authentication mode
+  HelpText: Select authentication mode
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Basic Authentication
+    ValueName: Basic Authentication
+  - ValueDisplayName: Session Authentication
+    ValueName: Session Authentication
+- AttributeName: REDF002
+  DefaultValue: ''
+  DisplayName: IP address
+  HelpText: Enter IP address
+  MaxLength: 15
+  MinLength: 7
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: REDF003
+  DefaultValue: ''
+  DisplayName: IP Mask address
+  HelpText: Enter IP Mask address
+  MaxLength: 15
+  MinLength: 7
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: REDF004
+  DefaultValue: 65535
+  DisplayName: IP Port
+  HelpText: Enter IP Port
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 65535
+- AttributeName: GSIO201
+  DefaultValue: false
+  DisplayName: Serial Port
+  HelpText: Enable or Disable Serial Port (COM)
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: GSIO607
+  DefaultValue: IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  DisplayName: Change Settings
+  HelpText: Select an optimal settings for Super IO Device
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: IO=3F8h; IRQ=4;
+    ValueName: IO=3F8h; IRQ=4;
+  - ValueDisplayName: IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+- AttributeName: GSIO202
+  DefaultValue: true
+  DisplayName: Serial Port
+  HelpText: Enable or Disable Serial Port (COM)
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: GSIO608
+  DefaultValue: IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  DisplayName: Change Settings
+  HelpText: Select an optimal settings for Super IO Device
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: IO=2F8h; IRQ=3;
+    ValueName: IO=2F8h; IRQ=3;
+  - ValueDisplayName: IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=3F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=2F8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=3E8h; IRQ=3,4,5,6,7,9,10,11,12;
+  - ValueDisplayName: IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+    ValueName: IO=2E8h; IRQ=3,4,5,6,7,9,10,11,12;
+- AttributeName: NVLCK002
+  DefaultValue: Enable
+  DisplayName: Password protection of Runtime Variables
+  HelpText: Control the NVRAM Runtime Variable protection through System Admin Password
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: TER001
+  DefaultValue: false
+  DisplayName: Console Redirection
+  HelpText: Console Redirection Enable or Disable.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER002
+  DefaultValue: true
+  DisplayName: Console Redirection
+  HelpText: Console Redirection Enable or Disable.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER010
+  DefaultValue: false
+  DisplayName: Windows Emergency Management Services (EMS)
+  HelpText: Console Redirection Enable or Disable.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER06B
+  DefaultValue: COM1
+  DisplayName: Out-of-Band Mgmt Port
+  HelpText: Microsoft Windows Emergency Management Services (EMS) allows for remote
+    management of a Windows Server OS through a serial port.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: COM1
+    ValueName: COM1
+  - ValueDisplayName: COM0 (Disabled)
+    ValueName: COM0 (Disabled)
+- AttributeName: TER011
+  DefaultValue: VT-UTF8
+  DisplayName: Terminal Type EMS
+  HelpText: VT-UTF8 is the preferred terminal type for out-of-band management. The
+    next best choice is VT100+ and then VT100. See above, in Console Redirection Settings
+    page, for more Help with Terminal Type/Emulation.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VT100
+    ValueName: VT100
+  - ValueDisplayName: VT100+
+    ValueName: VT100+
+  - ValueDisplayName: VT-UTF8
+    ValueName: VT-UTF8
+  - ValueDisplayName: ANSI
+    ValueName: ANSI
+- AttributeName: TER0020
+  DefaultValue: '115200'
+  DisplayName: Bits per second EMS
+  HelpText: Selects serial port transmission speed. The speed must be matched on the
+    other side. Long or noisy lines may require lower speeds.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '9600'
+    ValueName: '9600'
+  - ValueDisplayName: '19200'
+    ValueName: '19200'
+  - ValueDisplayName: '57600'
+    ValueName: '57600'
+  - ValueDisplayName: '115200'
+    ValueName: '115200'
+- AttributeName: TER05C
+  DefaultValue: None
+  DisplayName: Flow Control EMS
+  HelpText: Flow control can prevent data loss from buffer overflow. When sending
+    data, if the receiving buffers are full, a 'stop' signal can be sent to stop the
+    data flow. Once the buffers are empty, a 'start' signal can be sent to re-start
+    the flow. Hardware flow control uses two wires to send start/stop signals.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: Hardware RTS/CTS
+    ValueName: Hardware RTS/CTS
+  - ValueDisplayName: Software Xon/Xoff
+    ValueName: Software Xon/Xoff
+- AttributeName: TER0A8
+  DefaultValue: COM1
+  DisplayName: Redirection COM Port
+  HelpText: Select a COM port to display redirection of Legacy OS and Legacy OPROM
+    Messages
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: COM1
+    ValueName: COM1
+  - ValueDisplayName: COM0 (Disabled)
+    ValueName: COM0 (Disabled)
+- AttributeName: TER07A
+  DefaultValue: 80x24
+  DisplayName: Resolution
+  HelpText: On Legacy OS, the Number of Rows and Columns supported redirection
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 80x24
+    ValueName: 80x24
+  - ValueDisplayName: 80x25
+    ValueName: 80x25
+- AttributeName: TER0A7
+  DefaultValue: Always Enable
+  DisplayName: Redirect After POST
+  HelpText: When Bootloader is selected, then Legacy Console Redirection is disabled
+    before booting to legacy OS. When Always Enable is selected, then Legacy Console
+    Redirection is enabled for legacy OS. Default setting for this option is set to
+    Always Enable.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Always Enable
+    ValueName: Always Enable
+  - ValueDisplayName: BootLoader
+    ValueName: BootLoader
+- AttributeName: TER012
+  DefaultValue: VT100
+  DisplayName: Terminal Type
+  HelpText: 'Emulation: ANSI: Extended ASCII char set. VT100: ASCII char set. VT100+:
+    Extends VT100 to support color, function keys, etc. VT-UTF8: Uses UTF8 encoding
+    to map Unicode chars onto 1 or more bytes.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VT100
+    ValueName: VT100
+  - ValueDisplayName: VT100+
+    ValueName: VT100+
+  - ValueDisplayName: VT-UTF8
+    ValueName: VT-UTF8
+  - ValueDisplayName: ANSI
+    ValueName: ANSI
+- AttributeName: TER0021
+  DefaultValue: '115200'
+  DisplayName: Bits per second
+  HelpText: Selects serial port transmission speed. The speed must be matched on the
+    other side. Long or noisy lines may require lower speeds.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '9600'
+    ValueName: '9600'
+  - ValueDisplayName: '19200'
+    ValueName: '19200'
+  - ValueDisplayName: '38400'
+    ValueName: '38400'
+  - ValueDisplayName: '57600'
+    ValueName: '57600'
+  - ValueDisplayName: '115200'
+    ValueName: '115200'
+- AttributeName: TER030
+  DefaultValue: '8'
+  DisplayName: Data Bits
+  HelpText: Data Bits
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '7'
+    ValueName: '7'
+  - ValueDisplayName: '8'
+    ValueName: '8'
+- AttributeName: TER03F
+  DefaultValue: None
+  DisplayName: Parity
+  HelpText: 'A parity bit can be sent with the data bits to detect some transmission
+    errors. Even: parity bit is 0 if the num of 1''s in the data bits is even. Odd:
+    parity bit is 0 if num of 1''s in the data bits is odd.  Mark: parity bit is always
+    1. Space: Parity bit is always 0. Mark and Space Parity do not allow for error
+    detection. They can be used as an additional data bit.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: Even
+    ValueName: Even
+  - ValueDisplayName: Odd
+    ValueName: Odd
+  - ValueDisplayName: Mark
+    ValueName: Mark
+  - ValueDisplayName: Space
+    ValueName: Space
+- AttributeName: TER04E
+  DefaultValue: '1'
+  DisplayName: Stop Bits
+  HelpText: Stop bits indicate the end of a serial data packet. (A start bit indicates
+    the beginning). The standard setting is 1 stop bit. Communication with slow devices
+    may require more than 1 stop bit.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '1'
+    ValueName: '1'
+  - ValueDisplayName: '2'
+    ValueName: '2'
+- AttributeName: TER05D
+  DefaultValue: None
+  DisplayName: Flow Control
+  HelpText: Flow control can prevent data loss from buffer overflow. When sending
+    data, if the receiving buffers are full, a 'stop' signal can be sent to stop the
+    data flow. Once the buffers are empty, a 'start' signal can be sent to re-start
+    the flow. Hardware flow control uses two wires to send start/stop signals.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: Hardware RTS/CTS
+    ValueName: Hardware RTS/CTS
+- AttributeName: TER07B
+  DefaultValue: true
+  DisplayName: VT-UTF8 Combo Key Support
+  HelpText: Enable VT-UTF8 Combination Key Support for ANSI/VT100 terminals
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER089
+  DefaultValue: false
+  DisplayName: Recorder Mode
+  HelpText: With this mode enabled only text will be sent. This is to capture Terminal
+    data.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER06c
+  DefaultValue: false
+  DisplayName: Resolution 100x31
+  HelpText: Enables or disables extended terminal resolution
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER098
+  DefaultValue: VT100
+  DisplayName: Putty KeyPad
+  HelpText: Select FunctionKey and KeyPad on Putty.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VT100
+    ValueName: VT100
+  - ValueDisplayName: LINUX
+    ValueName: LINUX
+  - ValueDisplayName: XTERMR6
+    ValueName: XTERMR6
+  - ValueDisplayName: SCO
+    ValueName: SCO
+  - ValueDisplayName: ESCN
+    ValueName: ESCN
+  - ValueDisplayName: VT400
+    ValueName: VT400
+- AttributeName: TER013
+  DefaultValue: VT100
+  DisplayName: Terminal Type
+  HelpText: 'Emulation: ANSI: Extended ASCII char set. VT100: ASCII char set. VT100+:
+    Extends VT100 to support color, function keys, etc. VT-UTF8: Uses UTF8 encoding
+    to map Unicode chars onto 1 or more bytes.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VT100
+    ValueName: VT100
+  - ValueDisplayName: VT100+
+    ValueName: VT100+
+  - ValueDisplayName: VT-UTF8
+    ValueName: VT-UTF8
+  - ValueDisplayName: ANSI
+    ValueName: ANSI
+- AttributeName: TER0022
+  DefaultValue: '115200'
+  DisplayName: Bits per second
+  HelpText: Selects serial port transmission speed. The speed must be matched on the
+    other side. Long or noisy lines may require lower speeds.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '9600'
+    ValueName: '9600'
+  - ValueDisplayName: '19200'
+    ValueName: '19200'
+  - ValueDisplayName: '38400'
+    ValueName: '38400'
+  - ValueDisplayName: '57600'
+    ValueName: '57600'
+  - ValueDisplayName: '115200'
+    ValueName: '115200'
+- AttributeName: TER031
+  DefaultValue: '8'
+  DisplayName: Data Bits
+  HelpText: Data Bits
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '7'
+    ValueName: '7'
+  - ValueDisplayName: '8'
+    ValueName: '8'
+- AttributeName: TER040
+  DefaultValue: None
+  DisplayName: Parity
+  HelpText: 'A parity bit can be sent with the data bits to detect some transmission
+    errors. Even: parity bit is 0 if the num of 1''s in the data bits is even. Odd:
+    parity bit is 0 if num of 1''s in the data bits is odd.  Mark: parity bit is always
+    1. Space: Parity bit is always 0. Mark and Space Parity do not allow for error
+    detection. They can be used as an additional data bit.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: Even
+    ValueName: Even
+  - ValueDisplayName: Odd
+    ValueName: Odd
+  - ValueDisplayName: Mark
+    ValueName: Mark
+  - ValueDisplayName: Space
+    ValueName: Space
+- AttributeName: TER04F
+  DefaultValue: '1'
+  DisplayName: Stop Bits
+  HelpText: Stop bits indicate the end of a serial data packet. (A start bit indicates
+    the beginning). The standard setting is 1 stop bit. Communication with slow devices
+    may require more than 1 stop bit.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: '1'
+    ValueName: '1'
+  - ValueDisplayName: '2'
+    ValueName: '2'
+- AttributeName: TER05E
+  DefaultValue: None
+  DisplayName: Flow Control
+  HelpText: Flow control can prevent data loss from buffer overflow. When sending
+    data, if the receiving buffers are full, a 'stop' signal can be sent to stop the
+    data flow. Once the buffers are empty, a 'start' signal can be sent to re-start
+    the flow. Hardware flow control uses two wires to send start/stop signals.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: None
+    ValueName: None
+  - ValueDisplayName: Hardware RTS/CTS
+    ValueName: Hardware RTS/CTS
+- AttributeName: TER07C
+  DefaultValue: true
+  DisplayName: VT-UTF8 Combo Key Support
+  HelpText: Enable VT-UTF8 Combination Key Support for ANSI/VT100 terminals
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER08A
+  DefaultValue: false
+  DisplayName: Recorder Mode
+  HelpText: With this mode enabled only text will be sent. This is to capture Terminal
+    data.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER06D
+  DefaultValue: false
+  DisplayName: Resolution 100x31
+  HelpText: Enables or disables extended terminal resolution
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: TER099
+  DefaultValue: VT100
+  DisplayName: Putty KeyPad
+  HelpText: Select FunctionKey and KeyPad on Putty.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VT100
+    ValueName: VT100
+  - ValueDisplayName: LINUX
+    ValueName: LINUX
+  - ValueDisplayName: XTERMR6
+    ValueName: XTERMR6
+  - ValueDisplayName: SCO
+    ValueName: SCO
+  - ValueDisplayName: ESCN
+    ValueName: ESCN
+  - ValueDisplayName: VT400
+    ValueName: VT400
+- AttributeName: GSIO020
+  DefaultValue: false
+  DisplayName: Lock Legacy Resources
+  HelpText: Enables or Disables Lock of Legacy Resources
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: PCIS001
+  DefaultValue: 32 PCI Bus Clocks
+  DisplayName: PCI Latency Timer
+  HelpText: Value to be programmed into PCI Latency Timer Register.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 32 PCI Bus Clocks
+    ValueName: 32 PCI Bus Clocks
+  - ValueDisplayName: 64 PCI Bus Clocks
+    ValueName: 64 PCI Bus Clocks
+  - ValueDisplayName: 96 PCI Bus Clocks
+    ValueName: 96 PCI Bus Clocks
+  - ValueDisplayName: 128 PCI Bus Clocks
+    ValueName: 128 PCI Bus Clocks
+  - ValueDisplayName: 160 PCI Bus Clocks
+    ValueName: 160 PCI Bus Clocks
+  - ValueDisplayName: 192 PCI Bus Clocks
+    ValueName: 192 PCI Bus Clocks
+  - ValueDisplayName: 224 PCI Bus Clocks
+    ValueName: 224 PCI Bus Clocks
+  - ValueDisplayName: 248 PCI Bus Clocks
+    ValueName: 248 PCI Bus Clocks
+- AttributeName: PCIS002
+  DefaultValue: 64 PCI Bus Clocks
+  DisplayName: PCI-X Latency Timer
+  HelpText: Value to be programmed into PCI Latency Timer Register.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 32 PCI Bus Clocks
+    ValueName: 32 PCI Bus Clocks
+  - ValueDisplayName: 64 PCI Bus Clocks
+    ValueName: 64 PCI Bus Clocks
+  - ValueDisplayName: 96 PCI Bus Clocks
+    ValueName: 96 PCI Bus Clocks
+  - ValueDisplayName: 128 PCI Bus Clocks
+    ValueName: 128 PCI Bus Clocks
+  - ValueDisplayName: 160 PCI Bus Clocks
+    ValueName: 160 PCI Bus Clocks
+  - ValueDisplayName: 192 PCI Bus Clocks
+    ValueName: 192 PCI Bus Clocks
+  - ValueDisplayName: 224 PCI Bus Clocks
+    ValueName: 224 PCI Bus Clocks
+  - ValueDisplayName: 248 PCI Bus Clocks
+    ValueName: 248 PCI Bus Clocks
+- AttributeName: PCIS003
+  DefaultValue: Disabled
+  DisplayName: VGA Palette Snoop
+  HelpText: Enables or Disables VGA Palette Registers Snooping.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS004
+  DefaultValue: Disabled
+  DisplayName: PERR# Generation
+  HelpText: Enables or Disables PCI Device to Generate PERR#.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS005
+  DefaultValue: Disabled
+  DisplayName: SERR# Generation
+  HelpText: Enables or Disables PCI Device to Generate SERR#.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS006
+  DefaultValue: Enabled
+  DisplayName: Above 4G Decoding
+  HelpText: Enables or Disables 64bit capable Devices to be Decoded in Above 4G Address
+    Space (Only if System Supports 64 bit PCI Decoding).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS007
+  DefaultValue: Enabled
+  DisplayName: SR-IOV Support
+  HelpText: If system has SR-IOV capable PCIe Devices, this option Enables or Disables
+    Single Root IO Virtualization Support.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS032
+  DefaultValue: Disabled
+  DisplayName: BME DMA Mitigation
+  HelpText: 'Re-enable Bus Master Attribute disabled during Pci enumeration for PCI
+    Bridges after SMM Locked '
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS033
+  DefaultValue: Disabled
+  DisplayName: Don't Reset VC-TC Mapping
+  HelpText: If system has Vitrtual Channels, Software can reset Traffic Class mapping
+    through Virtual Channels, to it's default state. Setting this option to Enabled
+    will not modify VC Resources.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS008
+  DefaultValue: Enabled
+  DisplayName: Relaxed Ordering
+  HelpText: Enables or Disables PCI Express Device Relaxed Ordering.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS009
+  DefaultValue: Disabled
+  DisplayName: Extended Tag
+  HelpText: If ENABLED allows Device to use 8-bit Tag field as a requester.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS010
+  DefaultValue: Enabled
+  DisplayName: No Snoop
+  HelpText: Enables or Disables PCI Express Device No Snoop option.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS011
+  DefaultValue: Auto
+  DisplayName: Maximum Payload
+  HelpText: Set Maximum Payload of PCI Express Device or allow System BIOS to select
+    the value.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: 128 Bytes
+    ValueName: 128 Bytes
+  - ValueDisplayName: 256 Bytes
+    ValueName: 256 Bytes
+  - ValueDisplayName: 512 Bytes
+    ValueName: 512 Bytes
+  - ValueDisplayName: 1024 Bytes
+    ValueName: 1024 Bytes
+  - ValueDisplayName: 2048 Bytes
+    ValueName: 2048 Bytes
+  - ValueDisplayName: 4096 Bytes
+    ValueName: 4096 Bytes
+- AttributeName: PCIS012
+  DefaultValue: Auto
+  DisplayName: Maximum Read Request
+  HelpText: Set Maximum Read Request Size of PCI Express Device or allow System BIOS
+    to select the value.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: 128 Bytes
+    ValueName: 128 Bytes
+  - ValueDisplayName: 256 Bytes
+    ValueName: 256 Bytes
+  - ValueDisplayName: 512 Bytes
+    ValueName: 512 Bytes
+  - ValueDisplayName: 1024 Bytes
+    ValueName: 1024 Bytes
+  - ValueDisplayName: 2048 Bytes
+    ValueName: 2048 Bytes
+  - ValueDisplayName: 4096 Bytes
+    ValueName: 4096 Bytes
+- AttributeName: PCIS013
+  DefaultValue: Disabled
+  DisplayName: ASPM Support
+  HelpText: 'Set the ASPM Level:  Force L0s - Force all links to L0s State  AUTO -
+    BIOS auto configure  DISABLE - Disables ASPM'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Force L0s
+    ValueName: Force L0s
+- AttributeName: PCIS014
+  DefaultValue: Disabled
+  DisplayName: Extended Synch
+  HelpText: If ENABLED allows generation of Extended Synchronization patterns.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS015
+  DefaultValue: '5'
+  DisplayName: Link Training Retry
+  HelpText: Defines number of Retry Attempts software will take to retrain the link
+    if previous training attempt was unsuccessful.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: '2'
+    ValueName: '2'
+  - ValueDisplayName: '3'
+    ValueName: '3'
+  - ValueDisplayName: '5'
+    ValueName: '5'
+- AttributeName: PCIS016
+  DefaultValue: 1000
+  DisplayName: Link Training Timeout (uS)
+  HelpText: Defines number of Microseconds software will wait before polling 'Link
+    Training' bit in Link Status register. Value range from 10 to 10000 uS.
+  LowerBound: 10
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 10
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 10000
+- AttributeName: PCIS017
+  DefaultValue: Keep Link ON
+  DisplayName: Unpopulated Links
+  HelpText: In order to save power, software will disable unpopulated PCI Express
+    links, if this option set to 'Disable Link'.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Keep Link ON
+    ValueName: Keep Link ON
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: PCIS018
+  DefaultValue: Disabled
+  DisplayName: Restore PCIE Registers
+  HelpText: 'On non-PCI Express aware OS''s (Pre Windows Vista) some devices may not
+    be correctly reinitialized after S3. Enabling this restors PCI Express device
+    configurations on S3 resume. Warning: Enabling this may cause issues with other
+    hardware after S3 resume.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: PCIS020
+  DefaultValue: Disabled
+  DisplayName: ARI Forwarding
+  HelpText: 'If supported by hardware and set to ''Enabled'', the Downstream Port
+    disables its traditional Device Number field being 0 enforcement when turning
+    a Type1 Configuration Request into a Type0 Configuration Request, permitting access
+    to Extended Functions in an ARI Device immediately below the Port. Default value:
+    Disabled'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS021
+  DefaultValue: Disabled
+  DisplayName: AtomicOp Requester Enable
+  HelpText: If supported by hardware and set to 'Enabled', this function initiates
+    AtomicOp Requests only if Bus Master Enable bit is in the Command Register Set.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS022
+  DefaultValue: Disabled
+  DisplayName: AtomicOp Egress Blocking
+  HelpText: If supported by hardware and set to 'Enabled', outbound AtomicOp Requests
+    via Egress Ports will be blocked.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS023
+  DefaultValue: Disabled
+  DisplayName: IDO Request Enable
+  HelpText: If supported by hardware and set to 'Enabled', this permits setting the
+    number of ID-Based Ordering (IDO) bit (Attribute[2]) requests to be initiated.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS024
+  DefaultValue: Disabled
+  DisplayName: IDO Completion Enable
+  HelpText: If supported by hardware and set to 'Enabled', this permits setting the
+    number of ID-Based Ordering (IDO) bit (Attribute[2]) requests to be initiated.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS025
+  DefaultValue: Disabled
+  DisplayName: LTR Mechanism Enable
+  HelpText: If supported by hardware and set to 'Enabled', this enables the Latency
+    Tolerance Reporting (LTR) Mechanism.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS026
+  DefaultValue: Disabled
+  DisplayName: End-End TLP Prefix Blocking
+  HelpText: If supported by hardware and set to 'Enabled', this function will block
+    forwarding of TLPs containing End-End TLP Prefixes.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS027
+  DefaultValue: Auto
+  DisplayName: Target Link Speed
+  HelpText: If supported by hardware and set to 'Force to X.X GT/s' for Downstream
+    Ports, this sets an upper limit on Link operational speed by restricting the values
+    advertised by the Upstream component in its training sequences. When 'Auto' is
+    selected HW initialized data will be used.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Force to 2.5 GT/s
+    ValueName: Force to 2.5 GT/s
+  - ValueDisplayName: Force to 5.0 GT/s
+    ValueName: Force to 5.0 GT/s
+  - ValueDisplayName: Force to 8.0 GT/s
+    ValueName: Force to 8.0 GT/s
+  - ValueDisplayName: Force to 16.0 GT/s
+    ValueName: Force to 16.0 GT/s
+  - ValueDisplayName: Force to 32.0 GT/s
+    ValueName: Force to 32.0 GT/s
+- AttributeName: PCIS028
+  DefaultValue: Disabled
+  DisplayName: Clock Power Management
+  HelpText: If supported by hardware and set to 'Enabled', the device is permitted
+    to use CLKREQ# signal for power management of Link clock in accordance to protocol
+    defined in appropriate form factor specification.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS029
+  DefaultValue: Disabled
+  DisplayName: Compliance SOS
+  HelpText: If supported by hardware and set to 'Enabled', this will force LTSSM to
+    send SKP Ordered Sets between sequences when sending Compliance Pattern or Modified
+    Compliance Pattern.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: PCIS030
+  DefaultValue: Enabled
+  DisplayName: Hardware Autonomous Width
+  HelpText: If supported by hardware and set to 'Disabled', this will disable the
+    hardware's ability to change link width except width size reduction for the purpose
+    of correcting unstable link operation.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: PCIS031
+  DefaultValue: Enabled
+  DisplayName: Hardware Autonomous Speed
+  HelpText: If supported by hardware and set to 'Disabled', this will disable the
+    hardware's ability to change link speed except speed rate reduction for the purpose
+    of correcting unstable link operation.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: USB002
+  DefaultValue: Enabled
+  DisplayName: Legacy USB Support
+  HelpText: Enables Legacy USB support. AUTO option disables legacy support if no
+    USB devices are connected. DISABLE option will keep USB devices available only
+    for EFI applications.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: USB00E
+  DefaultValue: HiSpeed
+  DisplayName: USB 2.0 Controller Mode
+  HelpText: Configures the USB 2.0 controller in HiSpeed (480Mbps) or FullSpeed (12Mbps).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: HiSpeed
+    ValueName: HiSpeed
+  - ValueDisplayName: FullSpeed
+    ValueName: FullSpeed
+- AttributeName: USB001
+  DefaultValue: Enabled
+  DisplayName: XHCI Legacy Support
+  HelpText: Enable/Disable XHCI Controller Legacy support.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: USB003
+  DefaultValue: Enabled
+  DisplayName: XHCI Hand-off
+  HelpText: This is a workaround for OSes without XHCI hand-off support. The XHCI
+    ownership change should be claimed by XHCI driver.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: USB004
+  DefaultValue: Disabled
+  DisplayName: EHCI Hand-off
+  HelpText: This is a workaround for OSes without EHCI hand-off support. The EHCI
+    ownership change should be claimed by EHCI driver.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: USB00F
+  DefaultValue: Enabled
+  DisplayName: USB Mass Storage Driver Support
+  HelpText: Enable/Disable USB Mass Storage Driver Support.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: USB00D
+  DefaultValue: Enabled
+  DisplayName: Port 60/64 Emulation
+  HelpText: Enables I/O port 60h/64h emulation support. This should be enabled for
+    the complete USB keyboard legacy support for non-USB aware OSes.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: USB00A
+  DefaultValue: 20 sec
+  DisplayName: USB transfer time-out
+  HelpText: The time-out value for Control, Bulk, and Interrupt transfers.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 1 sec
+    ValueName: 1 sec
+  - ValueDisplayName: 5 sec
+    ValueName: 5 sec
+  - ValueDisplayName: 10 sec
+    ValueName: 10 sec
+  - ValueDisplayName: 20 sec
+    ValueName: 20 sec
+- AttributeName: USB009
+  DefaultValue: 20 sec
+  DisplayName: Device reset time-out
+  HelpText: USB mass storage device Start Unit command time-out.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 10 sec
+    ValueName: 10 sec
+  - ValueDisplayName: 20 sec
+    ValueName: 20 sec
+  - ValueDisplayName: 30 sec
+    ValueName: 30 sec
+  - ValueDisplayName: 40 sec
+    ValueName: 40 sec
+- AttributeName: USB00B
+  DefaultValue: Auto
+  DisplayName: Device power-up delay
+  HelpText: 'Maximum time the device will take before it properly reports itself to
+    the Host Controller. ''Auto'' uses default value: for a Root port it is 100 ms,
+    for a Hub port the delay is taken from Hub descriptor.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Manual
+    ValueName: Manual
+- AttributeName: USB00C
+  DefaultValue: 5
+  DisplayName: Device power-up delay in seconds
+  HelpText: Delay range is 1..40 seconds, in one second increments
+  LowerBound: 1
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 40
+- AttributeName: USB011
+  DefaultValue: Auto
+  DisplayName: AMI Virtual CDROM0 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB012
+  DefaultValue: Auto
+  DisplayName: AMI Virtual HDisk0 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB013
+  DefaultValue: Auto
+  DisplayName: AMI Virtual CDROM1 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB014
+  DefaultValue: Auto
+  DisplayName: AMI Virtual CDROM2 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB015
+  DefaultValue: Auto
+  DisplayName: AMI Virtual CDROM3 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB016
+  DefaultValue: Auto
+  DisplayName: AMI Virtual HDisk1 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB017
+  DefaultValue: Auto
+  DisplayName: AMI Virtual HDisk2 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB018
+  DefaultValue: Auto
+  DisplayName: AMI Virtual HDisk3 1.00
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB019
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01A
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01B
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01C
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01D
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01E
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB01F
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB020
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB021
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB022
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB023
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB024
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB025
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB026
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB027
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB028
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB029
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02A
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02B
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02C
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02D
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02E
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB02F
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: USB030
+  DefaultValue: Auto
+  DisplayName: N/A
+  HelpText: Mass storage device emulation type. 'AUTO' enumerates devices according
+    to their media format. Optical drives are emulated as 'CDROM', drives with no
+    media will be emulated according to a drive type.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Floppy
+    ValueName: Floppy
+  - ValueDisplayName: Forced FDD
+    ValueName: Forced FDD
+  - ValueDisplayName: Hard Disk
+    ValueName: Hard Disk
+  - ValueDisplayName: CD-ROM
+    ValueName: CD-ROM
+- AttributeName: NWSK000
+  DefaultValue: Enabled
+  DisplayName: Network Stack
+  HelpText: Enable/Disable UEFI Network Stack
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: NWSK001
+  DefaultValue: Enabled
+  DisplayName: IPv4 PXE Support
+  HelpText: Enable/Disable IPv4 PXE boot support. If disabled, IPv4 PXE boot support
+    will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: NWSK006
+  DefaultValue: Disabled
+  DisplayName: IPv4 HTTP Support
+  HelpText: Enable/Disable IPv4 HTTP boot support. If disabled, IPv4 HTTP boot support
+    will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: NWSK002
+  DefaultValue: Disabled
+  DisplayName: IPv6 PXE Support
+  HelpText: Enable/Disable IPv6 PXE boot support. If disabled, IPv6 PXE boot support
+    will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: NWSK007
+  DefaultValue: Disabled
+  DisplayName: IPv6 HTTP Support
+  HelpText: Enable/Disable IPv6 HTTP boot support. If disabled, IPv6 HTTP boot support
+    will not be available.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: NWSK004
+  DefaultValue: 120
+  DisplayName: PXE boot wait time
+  HelpText: Wait time in seconds to press ESC key to abort the PXE boot. Use either
+    +/- or numeric keys to set the value.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 255
+- AttributeName: NWSK005
+  DefaultValue: 1
+  DisplayName: Media detect count
+  HelpText: Number of times the presence of media will be checked. Use either +/-
+    or numeric keys to set the value.
+  LowerBound: 1
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 50
+- AttributeName: CSM005
+  DefaultValue: Disabled
+  DisplayName: CSM Support
+  HelpText: Enable/Disable CSM Support.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: CSM002
+  DefaultValue: Upon Request
+  DisplayName: GateA20 Active
+  HelpText: UPON REQUEST - GA20 can be disabled using BIOS services. ALWAYS - do not
+    allow disabling GA20; this option is useful when any RT code is executed above
+    1MB.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Upon Request
+    ValueName: Upon Request
+  - ValueDisplayName: Always
+    ValueName: Always
+- AttributeName: CSM000
+  DefaultValue: Force BIOS
+  DisplayName: Option ROM Messages
+  HelpText: Set display mode for Option ROM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Force BIOS
+    ValueName: Force BIOS
+  - ValueDisplayName: Keep Current
+    ValueName: Keep Current
+- AttributeName: CSM001
+  DefaultValue: Immediate
+  DisplayName: INT19 Trap Response
+  HelpText: 'BIOS reaction on INT19 trapping by Option ROM: IMMEDIATE - execute the
+    trap right away; POSTPONED - execute the trap during legacy boot.'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Immediate
+    ValueName: Immediate
+  - ValueDisplayName: Postponed
+    ValueName: Postponed
+- AttributeName: CSM011
+  DefaultValue: Adjust
+  DisplayName: HDD Connection Order
+  HelpText: Some OS require HDD handles to be adjusted, i.e. OS is installed on drive
+    80h.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Adjust
+    ValueName: Adjust
+  - ValueDisplayName: Keep
+    ValueName: Keep
+- AttributeName: CSM006
+  DefaultValue: UEFI only
+  DisplayName: Boot option filter
+  HelpText: This option controls Legacy/UEFI ROMs priority
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: UEFI and Legacy
+    ValueName: UEFI and Legacy
+  - ValueDisplayName: Legacy only
+    ValueName: Legacy only
+  - ValueDisplayName: UEFI only
+    ValueName: UEFI only
+- AttributeName: CSM007
+  DefaultValue: UEFI
+  DisplayName: Network
+  HelpText: Controls the execution of UEFI and Legacy Network OpROM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: UEFI
+    ValueName: UEFI
+  - ValueDisplayName: Legacy
+    ValueName: Legacy
+- AttributeName: CSM008
+  DefaultValue: UEFI
+  DisplayName: Storage
+  HelpText: Controls the execution of UEFI and Legacy Storage OpROM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: UEFI
+    ValueName: UEFI
+  - ValueDisplayName: Legacy
+    ValueName: Legacy
+- AttributeName: CSM009
+  DefaultValue: UEFI
+  DisplayName: Video
+  HelpText: Controls the execution of UEFI and Legacy Video OpROM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: UEFI
+    ValueName: UEFI
+  - ValueDisplayName: Legacy
+    ValueName: Legacy
+- AttributeName: CSM010
+  DefaultValue: UEFI
+  DisplayName: Other PCI devices
+  HelpText: Determines OpROM execution policy for devices other than Network, Storage,
+    or Video
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: UEFI
+    ValueName: UEFI
+  - ValueDisplayName: Legacy
+    ValueName: Legacy
+- AttributeName: SETUP001
+  DisplayName: Administrator Password
+  HelpText: Set Administrator Password
+  MaxLength: 20
+  MinLength: 3
+  ReadOnly: false
+  ResetRequired: false
+  Type: Password
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: SETUP002
+  DisplayName: User Password
+  HelpText: Set User Password
+  MaxLength: 20
+  MinLength: 3
+  ReadOnly: false
+  ResetRequired: false
+  Type: Password
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: SECB002
+  DefaultValue: Custom
+  DisplayName: Secure Boot Mode
+  HelpText: 'Secure Boot mode options:  Standard or Custom.  In Custom mode, Secure
+    Boot Policy variables can be configured by a physically present user without full
+    authentication'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Standard
+    ValueName: Standard
+  - ValueDisplayName: Custom
+    ValueName: Custom
+- AttributeName: SECB008
+  DefaultValue: Enabled
+  DisplayName: Factory Key Provision
+  HelpText: Install factory default Secure Boot keys after the platform reset and
+    while the System is in Setup mode
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: SETUP003
+  DefaultValue: 1
+  DisplayName: Setup Prompt Timeout
+  HelpText: Number of seconds to wait for setup activation key. 65535(0xFFFF) means
+    indefinite waiting.
+  LowerBound: 1
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 65535
+- AttributeName: SETUP004
+  DefaultValue: 'On'
+  DisplayName: Bootup NumLock State
+  HelpText: Select the keyboard NumLock state
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 'On'
+    ValueName: 'On'
+  - ValueDisplayName: 'Off'
+    ValueName: 'Off'
+- AttributeName: SETUP005
+  DefaultValue: false
+  DisplayName: Quiet Boot
+  HelpText: Enables or disables Quiet Boot option
+  ReadOnly: false
+  ResetRequired: false
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: SETUP006
+  DisplayName: Boot Option Priorities
+  HelpText: Sets the system boot order. Each boot option is separated by semicolon
+    which contains boot name, boot index, enabled/disabled
+  MaxLength: 8192
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: RFWCS030
+  DefaultValue: Disabled
+  DisplayName: Refresh attribute registry
+  HelpText: Refreshes the attribute registry in next boot. This will be helpful for
+    complex condition evaluation
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: OROM002
+  DefaultValue: true
+  DisplayName: Restore if Failure
+  HelpText: If system fails to boot and this option is set to 'Enabled', software
+    will reset settings of this page as well as CSM page to its default values automatically.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM001
+  DefaultValue: true
+  DisplayName: Primary Video Ignore
+  HelpText: If software will detect that due to the Policy settings, Option ROM of
+    Primary Video Device will not dispatch, it will ignore this device policy settings,
+    and restore it to 'Enable' automatically.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM999
+  DefaultValue: false
+  DisplayName: On Board Mass Storage Controller
+  HelpText: 'Onboard Device has:   UEFI   [X]   Legacy [X]  Embedded ROM(s).  VIDx8086;DIDxA1D2  @
+    s0|Bx0|Dx11|Fx5'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM998
+  DefaultValue: false
+  DisplayName: On Board Mass Storage Controller
+  HelpText: 'Onboard Device has:   UEFI   [X]   Legacy [X]  Embedded ROM(s).  VIDx8086;DIDxA182  @
+    s0|Bx0|Dx17|Fx0'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM996
+  DefaultValue: false
+  DisplayName: On Board Display Controller
+  HelpText: 'Onboard Device has:   UEFI   [X]   Legacy [X]  Embedded ROM(s).  VIDx1A03;DIDx2000  @
+    s0|Bx3|Dx0|Fx0'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM995
+  DefaultValue: false
+  DisplayName: 'Slot # 1 Network Controller'
+  HelpText: 'Device on Slot has:   UEFI   [X]   Legacy [X]  Option   ROM(s).  VIDx8086;DIDx1593  @
+    s0|Bx18|Dx0|Fx0'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM994
+  DefaultValue: false
+  DisplayName: 'Slot # 2 Network Controller'
+  HelpText: 'Device on Slot has:   UEFI   [X]   Legacy [X]  Option   ROM(s).  VIDx8086;DIDx1593  @
+    s0|Bx1A|Dx0|Fx0'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM993
+  DefaultValue: false
+  DisplayName: 'Slot # 3 Unknown Class'
+  HelpText: Device on Slot does not have an Option ROM.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM992
+  DefaultValue: false
+  DisplayName: 'Slot # 5 Mass Storage Controller'
+  HelpText: Device on Slot does not have an Option ROM.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: OROM991
+  DefaultValue: false
+  DisplayName: 'Slot # 6 Mass Storage Controller'
+  HelpText: Device on Slot does not have an Option ROM.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Boolean
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI600
+  DefaultValue: Enabled
+  DisplayName: BMC Support
+  HelpText: Enable/Disable interfaces to communicate with BMC
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI601
+  DefaultValue: Enabled
+  DisplayName: Wait For BMC
+  HelpText: Wait For BMC response for specified time out. In PILOTII, BMC starts at
+    the same time when BIOS starts during AC power ON. It takes around 30 seconds
+    to initialize Host to BMC interfaces.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI100
+  DefaultValue: Enabled
+  DisplayName: FRB-2 Timer
+  HelpText: Enable or Disable FRB-2 timer(POST timer)
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI101
+  DefaultValue: 20
+  DisplayName: FRB-2 Timer timeout
+  HelpText: Enter value Between 1 to 30 min for FRB-2 Timer Expiration
+  LowerBound: 1
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 30
+- AttributeName: IPMI102
+  DefaultValue: Reset
+  DisplayName: FRB-2 Timer Policy
+  HelpText: Configure how the system should respond if the FRB-2 Timer expires. Not
+    available if FRB-2 Timer is disabled.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Do Nothing
+    ValueName: Do Nothing
+  - ValueDisplayName: Reset
+    ValueName: Reset
+  - ValueDisplayName: Power Down
+    ValueName: Power Down
+  - ValueDisplayName: Power Cycle
+    ValueName: Power Cycle
+- AttributeName: IPMI103
+  DefaultValue: Disabled
+  DisplayName: OS Watchdog Timer
+  HelpText: If enabled, starts a BIOS timer which can only be shut off by Management
+    Software after the OS loads.  Helps determine that the OS successfully loaded
+    or follows the OS Boot Watchdog Timer policy.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI104
+  DefaultValue: 10
+  DisplayName: OS Wtd Timer Timeout
+  HelpText: Enter the value Between 1 to 30 min for OS Boot Watchdog Timer Expiration.
+    Not available if OS Boot Watchdog Timer is disabled.
+  LowerBound: 1
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 30
+- AttributeName: IPMI105
+  DefaultValue: Reset
+  DisplayName: OS Wtd Timer Policy
+  HelpText: Configure how the system should respond if the OS Boot Watchdog Timer
+    expires. Not available if OS Boot Watchdog Timer is disabled.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Do Nothing
+    ValueName: Do Nothing
+  - ValueDisplayName: Reset
+    ValueName: Reset
+  - ValueDisplayName: Power Down
+    ValueName: Power Down
+  - ValueDisplayName: Power Cycle
+    ValueName: Power Cycle
+- AttributeName: IPMI400
+  DefaultValue: Disabled
+  DisplayName: Serial Mux
+  HelpText: Press <Enter> to enable or disable Serial Mux configuration.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI900
+  DefaultValue: Power On
+  DisplayName: System Power Recovery Mode
+  HelpText: 'Configure how the system should respond if AC Power is lost,Reset not
+    required as selected Power policy will be set in BMC when policy is saved '
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Power Off
+    ValueName: Power Off
+  - ValueDisplayName: Last State
+    ValueName: Last State
+  - ValueDisplayName: Power On
+    ValueName: Power On
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+- AttributeName: IPMI000
+  DefaultValue: Enabled
+  DisplayName: SEL Components
+  HelpText: Change this to enable or disable event logging for error/progress codes
+    during boot.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: IPMI001
+  DefaultValue: 'No'
+  DisplayName: Erase SEL
+  HelpText: Choose options for erasing SEL.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 'No'
+    ValueName: 'No'
+  - ValueDisplayName: Yes, On next reset
+    ValueName: Yes, On next reset
+  - ValueDisplayName: Yes, On every reset
+    ValueName: Yes, On every reset
+- AttributeName: IPMI002
+  DefaultValue: Do Nothing
+  DisplayName: When SEL is Full
+  HelpText: Choose options for reactions to a full SEL.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Do Nothing
+    ValueName: Do Nothing
+  - ValueDisplayName: Erase Immediately
+    ValueName: Erase Immediately
+  - ValueDisplayName: Delete Oldest Record
+    ValueName: Delete Oldest Record
+- AttributeName: IPMI003
+  DefaultValue: Error code
+  DisplayName: Log EFI Status Codes
+  HelpText: Disable the logging of EFI Status Codes or log only error code or only
+    progress code or both.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Both
+    ValueName: Both
+  - ValueDisplayName: Error code
+    ValueName: Error code
+  - ValueDisplayName: Progress code
+    ValueName: Progress code
+- AttributeName: IPMI200
+  DefaultValue: Yes, On every reset
+  DisplayName: Erase Log
+  HelpText: Erase Log Options
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Yes, On every reset
+    ValueName: Yes, On every reset
+  - ValueDisplayName: 'No'
+    ValueName: 'No'
+- AttributeName: IPMI201
+  DefaultValue: Clear Log
+  DisplayName: When log is full
+  HelpText: Select the action to be taken when log is full
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Clear Log
+    ValueName: Clear Log
+  - ValueDisplayName: Do not log any more
+    ValueName: Do not log any more
+- AttributeName: IPMI500
+  DefaultValue: Unspecified
+  DisplayName: Configuration Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+  - ValueDisplayName: DynamicBmcNonDhcp
+    ValueName: DynamicBmcNonDhcp
+- AttributeName: IPMI501
+  DefaultValue: '...'
+  DisplayName: Station IP address
+  HelpText: Enter station IP address
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI502
+  DefaultValue: '...'
+  DisplayName: Subnet mask
+  HelpText: Enter subnet mask
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI503
+  DefaultValue: 0.0.0.0
+  DisplayName: Router IP address
+  HelpText: Enter router IP address
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI504
+  DefaultValue: 00-00-00-00-00-00
+  DisplayName: Router MAC address
+  HelpText: Enter router MAC address
+  MaxLength: 17
+  MinLength: 17
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI505
+  DefaultValue: Unspecified
+  DisplayName: Configuration Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+  - ValueDisplayName: DynamicBmcNonDhcp
+    ValueName: DynamicBmcNonDhcp
+- AttributeName: IPMI506
+  DefaultValue: '...'
+  DisplayName: Station IP address
+  HelpText: Enter station IP address
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI507
+  DefaultValue: '...'
+  DisplayName: Subnet mask
+  HelpText: Enter subnet mask
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI508
+  DefaultValue: 0.0.0.0
+  DisplayName: Router IP address
+  HelpText: Enter router IP address
+  MaxLength: 15
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI509
+  DefaultValue: 00-00-00-00-00-00
+  DisplayName: Router MAC address
+  HelpText: Enter router MAC address
+  MaxLength: 17
+  MinLength: 17
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI510
+  DefaultValue: Enabled
+  DisplayName: IPv6 Support
+  HelpText: Enable or Disable LAN1 IPv6 Support
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI511
+  DefaultValue: Unspecified
+  DisplayName: Configuration Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+- AttributeName: IPMI512
+  DefaultValue: ':::::::'
+  DisplayName: Station IPv6 address
+  HelpText: Enter station IPv6 address
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI513
+  DefaultValue: 0
+  DisplayName: Prefix Length
+  HelpText: Change the prefix length
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 128
+- AttributeName: IPMI522
+  DefaultValue: Unspecified
+  DisplayName: Configuration Router Lan1 Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+- AttributeName: IPMI514
+  DefaultValue: ':::::::'
+  DisplayName: IPv6 Router1 IP Address
+  HelpText: Change the IPv6 Router1 IP Address
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI520
+  DefaultValue: 0
+  DisplayName: IPv6 Router1 Prefix Length Lan1
+  HelpText: Change the IPv6 Router Prefix Length
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 128
+- AttributeName: IPMI521
+  DefaultValue: ':::::::'
+  DisplayName: IPv6 Router1 Prefix Value Lan1
+  HelpText: Change the IPv6 Router Prefix  Value
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI515
+  DefaultValue: Enabled
+  DisplayName: IPv6 Support
+  HelpText: Enable or Disable LAN2 IPv6 Support
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: IPMI516
+  DefaultValue: Unspecified
+  DisplayName: Configuration Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+- AttributeName: IPMI517
+  DefaultValue: ':::::::'
+  DisplayName: Station IPv6 address
+  HelpText: Enter station IPv6 address
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI518
+  DefaultValue: 0
+  DisplayName: Prefix Length
+  HelpText: Change the prefix length
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 128
+- AttributeName: IPMI525
+  DefaultValue: Unspecified
+  DisplayName: Configuration Router Lan2 Address source
+  HelpText: Select to configure LAN channel parameters statically or dynamically(by
+    BIOS or BMC). Unspecified option will not modify any BMC network parameters during
+    BIOS phase
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Unspecified
+    ValueName: Unspecified
+  - ValueDisplayName: Static
+    ValueName: Static
+  - ValueDisplayName: DynamicBmcDhcp
+    ValueName: DynamicBmcDhcp
+- AttributeName: IPMI519
+  DefaultValue: ':::::::'
+  DisplayName: IPv6 Router1 IP Address
+  HelpText: Change the IPv6 Router1 IP Address
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI523
+  DefaultValue: 0
+  DisplayName: IPv6 Router1 Prefix Length Lan2
+  HelpText: Change the IPv6 Router Prefix Length
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 128
+- AttributeName: IPMI524
+  DefaultValue: ':::::::'
+  DisplayName: IPv6 Router1 Prefix Value Lan2
+  HelpText: Change the IPv6 Router Prefix  Value
+  MaxLength: 39
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI800
+  DefaultValue: ''
+  DisplayName: User Name
+  HelpText: Enter BMC User Name
+  MaxLength: 16
+  MinLength: 0
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI801
+  DisplayName: User Password
+  HelpText: Enter BMC User Password
+  MaxLength: 20
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: Password
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI802
+  DefaultValue: Disable
+  DisplayName: User Access
+  HelpText: Enable/Disable the BMC User's Access.
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: IPMI803
+  DefaultValue: 0
+  DisplayName: Channel No
+  HelpText: Enter BMC Channel Number
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 15
+- AttributeName: IPMI804
+  DefaultValue: No Access
+  DisplayName: User Privilege Limit
+  HelpText: Enter BMC User Privilege Limit for Selected Channel
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: No Access
+    ValueName: No Access
+- AttributeName: IPMI805
+  DefaultValue: ''
+  DisplayName: User Name
+  HelpText: Enter BMC User Name
+  MaxLength: 16
+  MinLength: 0
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI807
+  DefaultValue: ''
+  DisplayName: User Name
+  HelpText: Enter BMC User Name
+  MaxLength: 16
+  MinLength: 0
+  ReadOnly: false
+  ResetRequired: false
+  Type: String
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI809
+  DisplayName: Change User Password
+  HelpText: Enter New Password to change.
+  MaxLength: 20
+  MinLength: 1
+  ReadOnly: false
+  ResetRequired: false
+  Type: Password
+  UefiNamespaceId: x-UEFI-AMI
+- AttributeName: IPMI810
+  DefaultValue: Disable
+  DisplayName: User Access
+  HelpText: Enable/Disable the BMC User's Access.
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: IPMI811
+  DefaultValue: 0
+  DisplayName: Channel No
+  HelpText: Enter BMC Channel Number
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: false
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 15
+- AttributeName: IPMI812
+  DefaultValue: No Access
+  DisplayName: User Privilege Limit
+  HelpText: Enter BMC User Privilege Limit for Selected Channel
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: No Access
+    ValueName: No Access
+- AttributeName: CRCS005
+  DefaultValue: Disable
+  DisplayName: Numa
+  HelpText: Enable or Disable Non uniform Memory Access (NUMA).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: KTIS001
+  DefaultValue: Auto
+  DisplayName: Link Frequency Select
+  HelpText: Allows for selecting the UPI Link Frequency
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 9.6GT/s
+    ValueName: 9.6GT/s
+  - ValueDisplayName: 10.4GT/s
+    ValueName: 10.4GT/s
+  - ValueDisplayName: 11.2GT/s
+    ValueName: 11.2GT/s
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Use Per Link Setting
+    ValueName: Use Per Link Setting
+- AttributeName: KTIS004
+  DefaultValue: Auto
+  DisplayName: Local/Remote Threshold
+  HelpText: Local/Remote Threshold setting
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Low
+    ValueName: Low
+  - ValueDisplayName: Medium
+    ValueName: Medium
+  - ValueDisplayName: High
+    ValueName: High
+- AttributeName: KTIS005
+  DefaultValue: Auto
+  DisplayName: TSC Sync support
+  HelpText: TSC Sync support for all processors
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: KTIS002
+  DefaultValue: 0
+  DisplayName: Legacy VGA Socket
+  HelpText: Socket that claims the legacy VGA range; valid values are 0-7; 0 is default.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 3
+- AttributeName: PMS025
+  DefaultValue: Disable
+  DisplayName: SNC (Sub NUMA)
+  HelpText: SNC disable will support 1-cluster (XPT/KTI Prefetch enable) 4-IMC way
+    interleave. SNC2 Enable supports 2-clusters SNC and 2-way IMC interleave.SNC4
+    Enable supports 4-clusters SNC and 1-way IMC interleave. Enable SNC2 or SNC4 will
+    gray out iMC_Interleave knob and UmaBasedClustering knob
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable SNC2 (2-clusters)
+    ValueName: Enable SNC2 (2-clusters)
+- AttributeName: KTIS003
+  DefaultValue: 0
+  DisplayName: Legacy VGA Stack
+  HelpText: Stack that claims the legacy VGA range; valid values are 0-3; 0 is default.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 6
+- AttributeName: KTIS006
+  DefaultValue: Auto
+  DisplayName: Stale AtoS
+  HelpText: Stale A to S Dir optimization
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: KTIS007
+  DefaultValue: Enable
+  DisplayName: LLC dead line alloc
+  HelpText: Enable - opportunistically fill dead lines in LLC. Disable - never fill
+    dead lines in LLC
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: IIOS001
+  DefaultValue: 'Yes'
+  DisplayName: PCIe Relaxed Ordering
+  HelpText: Enable Relaxed Ordering in PCIe devices where it is supported. Note that
+    in some devices it can be not supported, hardwired to zero.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 'No'
+    ValueName: 'No'
+  - ValueDisplayName: 'Yes'
+    ValueName: 'Yes'
+- AttributeName: IIOS002
+  DefaultValue: 'No'
+  DisplayName: PCIe PHY test mode
+  HelpText: PCIe PHY test mode Enable/Disable
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 'No'
+    ValueName: 'No'
+  - ValueDisplayName: 'Yes'
+    ValueName: 'Yes'
+- AttributeName: IIOS1FE
+  DefaultValue: Enable
+  DisplayName: Intel® VT for Directed I/O
+  HelpText: Enable/Disable Intel® Virtualization Technology for Directed I/O (VT-d)
+    by reporting the I/O device assignment to VMM through DMAR ACPI Tables.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: MEMS001
+  DefaultValue: POR
+  DisplayName: Enforce POR
+  HelpText: Enable - Enforces Plan Of Record restrictions for DDR4 frequency and voltage
+    programming. Disable - Disables this feature and user is able to run at higher
+    frequencies, specified in the DDR Frequency Limit field (limited by processor
+    support). Auto - Sets it to the MRC default setting (current default is Enable).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: POR
+    ValueName: POR
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: MEMS002
+  DefaultValue: Soft PPR
+  DisplayName: PPR Type
+  HelpText: Selects Post Package Repair Type - Hard / Soft / Disabled. Auto - Sets
+    it to the MRC default setting; current default is Soft PPR.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: PPR Disabled
+    ValueName: PPR Disabled
+  - ValueDisplayName: Hard PPR
+    ValueName: Hard PPR
+  - ValueDisplayName: Soft PPR
+    ValueName: Soft PPR
+- AttributeName: MEMS003
+  DefaultValue: Disable
+  DisplayName: PPR Error Injection test
+  HelpText: Enable / Disable support for c-script err inj test
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: MEMS004
+  DefaultValue: Auto
+  DisplayName: Memory Frequency
+  HelpText: Maximum Memory Frequency Selections in Mhz. If Enforce POR is disabled,
+    user will be able to run at higher frequencies than the memory support (limited
+    by processor support). Do not select Reserved
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: '1200'
+    ValueName: '1200'
+  - ValueDisplayName: '1333'
+    ValueName: '1333'
+  - ValueDisplayName: '1400'
+    ValueName: '1400'
+  - ValueDisplayName: '1600'
+    ValueName: '1600'
+  - ValueDisplayName: '1800'
+    ValueName: '1800'
+  - ValueDisplayName: '1866'
+    ValueName: '1866'
+  - ValueDisplayName: '2000'
+    ValueName: '2000'
+  - ValueDisplayName: '2133'
+    ValueName: '2133'
+  - ValueDisplayName: '2200'
+    ValueName: '2200'
+  - ValueDisplayName: '2400'
+    ValueName: '2400'
+  - ValueDisplayName: '2600'
+    ValueName: '2600'
+  - ValueDisplayName: '2666'
+    ValueName: '2666'
+  - ValueDisplayName: '2800'
+    ValueName: '2800'
+  - ValueDisplayName: '2933'
+    ValueName: '2933'
+  - ValueDisplayName: '3000'
+    ValueName: '3000'
+  - ValueDisplayName: '3200'
+    ValueName: '3200'
+  - ValueDisplayName: 3400-OvrClk
+    ValueName: 3400-OvrClk
+  - ValueDisplayName: 3466-OvrClk
+    ValueName: 3466-OvrClk
+  - ValueDisplayName: 3600-OvrClk
+    ValueName: 3600-OvrClk
+  - ValueDisplayName: 3733-OvrClk
+    ValueName: 3733-OvrClk
+  - ValueDisplayName: 3800-OvrClk
+    ValueName: 3800-OvrClk
+  - ValueDisplayName: 4000-OvrClk
+    ValueName: 4000-OvrClk
+  - ValueDisplayName: 4200-OvrClk
+    ValueName: 4200-OvrClk
+  - ValueDisplayName: 4266-OvrClk
+    ValueName: 4266-OvrClk
+  - ValueDisplayName: 4400-OvrClk
+    ValueName: 4400-OvrClk
+  - ValueDisplayName: 4800-OvrClk
+    ValueName: 4800-OvrClk
+- AttributeName: MEMS005
+  DefaultValue: Auto
+  DisplayName: IMC BCLK
+  HelpText: Auto, 100MHz or 133MHz
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: 100MHz
+    ValueName: 100MHz
+  - ValueDisplayName: 133MHz
+    ValueName: 133MHz
+- AttributeName: MEMS006
+  DefaultValue: Auto
+  DisplayName: SPD CRC Check
+  HelpText: Enable to turn on checking the SPD CRC
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: MEMS007
+  DefaultValue: 2LM
+  DisplayName: Volatile Memory Mode
+  HelpText: Selects 1LM or 2LM mode for volatile memory. For 2LM memory mode, BIOS
+    will try to configure 2LM but if BIOS is unable to configure 2LM, volatile memory
+    mode will fall back to 1LM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 1LM
+    ValueName: 1LM
+  - ValueDisplayName: 2LM
+    ValueName: 2LM
+- AttributeName: MEMS008
+  DefaultValue: 4KB Target, 256B Channel (4KB across CPU sockets, 256B across MCs
+    within socket, 256B across channels within MCs)
+  DisplayName: 1LM Memory Interleave Granularity
+  HelpText: Selects the 1LM memory interleave granularity
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 4KB Target, 256B Channel (4KB across CPU sockets, 256B across
+      MCs within socket, 256B across channels within MCs)
+    ValueName: 4KB Target, 256B Channel (4KB across CPU sockets, 256B across MCs within
+      socket, 256B across channels within MCs)
+- AttributeName: MEMS00C
+  DefaultValue: Disabled
+  DisplayName: Mirror Mode
+  HelpText: Full Mirror Mode will set entire 1LM memory in system to be mirrored,
+    consequently reducing the memory capacity by half. Partial Mirror Mode will enable
+    the required size of memory to be mirrored. If rank sparing is enabled partial
+    mirroring will not take effect. Enabling any type of Mirror Mode will disable
+    XPT Prefetch.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Full Mirror Mode
+    ValueName: Full Mirror Mode
+  - ValueDisplayName: Partial Mirror Mode
+    ValueName: Partial Mirror Mode
+- AttributeName: MEMS00D
+  DefaultValue: Disabled
+  DisplayName: Memory Rank Sparing
+  HelpText: Enable/Disable Memory Rank Sparing. This feature is only available on
+    1LM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: MEMS00E
+  DefaultValue: 100
+  DisplayName: Correctable Error Threshold
+  HelpText: Correctable Error Threshold (0x01 - 0x7fff) used for sparing, and leaky
+    bucket
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 32767
+- AttributeName: MEMS00F
+  DefaultValue: Disabled
+  DisplayName: ADDDC Sparing
+  HelpText: Enable/Disable ADDDC Sparing
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: MEMS010
+  DefaultValue: Disabled
+  DisplayName: Patrol Scrub
+  HelpText: Enable/Disable Patrol Scrub
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Enable at End of POST
+    ValueName: Enable at End of POST
+- AttributeName: PRSS011
+  DefaultValue: Enable
+  DisplayName: Hyper-Threading [ALL]
+  HelpText: Enables Hyper Threading (Software Method to Enable/Disable Logical Processor
+    threads.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS016
+  DefaultValue: Enable
+  DisplayName: Hardware Prefetcher
+  HelpText: = MLC Streamer Prefetcher (MSR 1A4h Bit[0])
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PRSS017
+  DefaultValue: Enable
+  DisplayName: Adjacent Cache Prefetch
+  HelpText: = MLC Spatial Prefetcher (MSR 1A4h Bit[1])
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PRSS018
+  DefaultValue: Enable
+  DisplayName: DCU Streamer Prefetcher
+  HelpText: DCU streamer prefetcher is an L1 data cache prefetcher (MSR 1A4h [2]).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PRSS019
+  DefaultValue: Enable
+  DisplayName: DCU IP Prefetcher
+  HelpText: DCU IP prefetcher is an L1 data cache prefetcher (MSR 1A4h [3]).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PRSS01A
+  DefaultValue: Enable
+  DisplayName: LLC Prefetch
+  HelpText: Enable/Disable LLC Prefetch on all threads
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS01B
+  DefaultValue: Normal
+  DisplayName: DCU Mode
+  HelpText: 'Normal: The whole DCU used for caching; Mirror-Mode: DCU organized as
+    2x16KB mirrored copies'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Normal
+    ValueName: Normal
+  - ValueDisplayName: Mirror-Mode
+    ValueName: Mirror-Mode
+- AttributeName: PRSS01C
+  DefaultValue: Enable
+  DisplayName: Extended APIC
+  HelpText: 'Enable/disable extended APIC support    Note:  This will enable VT-d
+    automatically if x2APIC is enabled'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS013
+  DefaultValue: Disable
+  DisplayName: Enable Intel(R) TXT
+  HelpText: Enables Intel(R) TXT.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS014
+  DefaultValue: Enable
+  DisplayName: VMX
+  HelpText: Enables the Vanderpool Technology, takes effect after reboot.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS015
+  DefaultValue: Enable
+  DisplayName: Enable SMX
+  HelpText: Enables Safer Mode Extensions.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS01D
+  DefaultValue: Enable
+  DisplayName: AES-NI
+  HelpText: Enable/disable AES-NI support
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PRSS001
+  DefaultValue: 0
+  DisplayName: Core Disable Bitmap(Hex)
+  HelpText: '0: Enable all cores. FFFFFFFFFFF: Disable all cores. NOTE: At least one
+    core per CPU must be enabled. Disabling all cores is an invalid configuration.'
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 17592186044415
+- AttributeName: PRSS002
+  DefaultValue: 0
+  DisplayName: Core Disable Bitmap(Hex)
+  HelpText: '0: Enable all cores. FFFFFFFFFFF: Disable all cores. NOTE: At least one
+    core per CPU must be enabled. Disabling all cores is an invalid configuration.'
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 17592186044415
+- AttributeName: PRSS003
+  DefaultValue: 0
+  DisplayName: Core Disable Bitmap(Hex)
+  HelpText: '0: Enable all cores. FFFFFFFFFFF: Disable all cores. NOTE: At least one
+    core per CPU must be enabled. Disabling all cores is an invalid configuration.'
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 17592186044415
+- AttributeName: PRSS004
+  DefaultValue: 0
+  DisplayName: Core Disable Bitmap(Hex)
+  HelpText: '0: Enable all cores. FFFFFFFFFFF: Disable all cores. NOTE: At least one
+    core per CPU must be enabled. Disabling all cores is an invalid configuration.'
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 17592186044415
+- AttributeName: PMS003
+  DefaultValue: Native Mode with No Legacy Support
+  DisplayName: Hardware P-States
+  HelpText: 'Disable: Hardware chooses a P-state based on OS Request (Legacy P-States)  Native
+    Mode:Hardware chooses a P-state based on OS guidance  Out of Band Mode:Hardware
+    autonomously chooses a P-state (no OS guidance)'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Native Mode
+    ValueName: Native Mode
+  - ValueDisplayName: Out of Band Mode
+    ValueName: Out of Band Mode
+  - ValueDisplayName: Native Mode with No Legacy Support
+    ValueName: Native Mode with No Legacy Support
+- AttributeName: PMS026
+  DefaultValue: Disable
+  DisplayName: HardwarePM Interrupt
+  HelpText: Enable/Disable Hardware PM Interrupt
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS01C
+  DefaultValue: Disable
+  DisplayName: EPP Enable
+  HelpText: When disabled, HW masks EPP in CPUID[6].10 and uses EPB for EPP
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS024
+  DefaultValue: Performance
+  DisplayName: EPP profile
+  HelpText: Choose an HWPM Profile (EPP)
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Performance
+    ValueName: Performance
+  - ValueDisplayName: Balanced Performance
+    ValueName: Balanced Performance
+  - ValueDisplayName: Balanced Power
+    ValueName: Balanced Power
+  - ValueDisplayName: Power
+    ValueName: Power
+- AttributeName: PMS027
+  DefaultValue: Disable
+  DisplayName: APS rocketing
+  HelpText: Enable/Disable the rocketing mechanism in the HWP p-state selection pcode
+    algorithm. Rocketing enables the core ratio to jump to max turbo instantaneously
+    as opposed to a smooth ramp up
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PMS028
+  DefaultValue: Disable
+  DisplayName: Scalability
+  HelpText: Enable/Disable Core Performance to Frequency Scalability Based Optimizations
+    in the CPU
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PMS029
+  DefaultValue: Disabled
+  DisplayName: Native ASPM
+  HelpText: Enabled - OS Controlled ASPM, Disabled - ASPM Off, AUTO - BIOS Controlled
+    ASPM
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+- AttributeName: PMS01B
+  DefaultValue: Disable
+  DisplayName: RAPL Prioritization
+  HelpText: This knob controls whether RAPL balancer is enabled. When enabled it activates
+    per core power budgeting.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PMS018
+  DefaultValue: Enable
+  DisplayName: AVX Licence Pre-Grant Override
+  HelpText: Enables AVX ICCP pre-grant level override.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS019
+  DefaultValue: 512 Heavy
+  DisplayName: AVX ICCP pre-grant level
+  HelpText: Pre-grants an AVX level to the core. Base frequency is not updated
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 128 Heavy
+    ValueName: 128 Heavy
+  - ValueDisplayName: 256 Light
+    ValueName: 256 Light
+  - ValueDisplayName: 256 Heavy
+    ValueName: 256 Heavy
+  - ValueDisplayName: 512 Light
+    ValueName: 512 Light
+  - ValueDisplayName: 512 Heavy
+    ValueName: 512 Heavy
+- AttributeName: PMS001
+  DefaultValue: Enable
+  DisplayName: SpeedStep (Pstates)
+  HelpText: Enable/Disable EIST (P-States)
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS011
+  DefaultValue: Level 2
+  DisplayName: AVX P1
+  HelpText: AVX P1 level selection
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Normal
+    ValueName: Normal
+  - ValueDisplayName: Level 1
+    ValueName: Level 1
+  - ValueDisplayName: Level 2
+    ValueName: Level 2
+- AttributeName: PMS016
+  DefaultValue: HW_ALL
+  DisplayName: EIST PSD Function
+  HelpText: Choose HW_ALL/SW_ALL in _PSD return
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: HW_ALL
+    ValueName: HW_ALL
+  - ValueDisplayName: SW_ALL
+    ValueName: SW_ALL
+- AttributeName: PMS017
+  DefaultValue: Max Performance
+  DisplayName: Boot performance mode
+  HelpText: Select the performance state that the BIOS will set before OS hand off.
+  ReadOnly: false
+  ResetRequired: false
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Max Performance
+    ValueName: Max Performance
+  - ValueDisplayName: Max Efficient
+    ValueName: Max Efficient
+  - ValueDisplayName: Set by Intel Node Manager
+    ValueName: Set by Intel Node Manager
+- AttributeName: PMS01A
+  DefaultValue: Disable
+  DisplayName: Energy Efficient Turbo
+  HelpText: Energy Efficient Turbo Disable, MSR 0x1FC [19]
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PMS002
+  DefaultValue: Enable
+  DisplayName: Turbo Mode
+  HelpText: Enable/Disable processor Turbo Mode (requires EMTTM enabled too).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS023
+  DefaultValue: 0 us
+  DisplayName: GPSS timer
+  HelpText: P-state change hysteresis time window
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 0 us
+    ValueName: 0 us
+  - ValueDisplayName: 50 us
+    ValueName: 50 us
+  - ValueDisplayName: 500 us
+    ValueName: 500 us
+- AttributeName: PMS012
+  DefaultValue: Enable
+  DisplayName: Enable Monitor MWAIT
+  HelpText: Allows Monitor and MWAIT instructions.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS01D
+  DefaultValue: Disable
+  DisplayName: CPU C1 auto demotion
+  HelpText: Allows CPU to automatically demote to C1. Takes effect after reboot.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS01E
+  DefaultValue: Disable
+  DisplayName: CPU C1 auto undemotion
+  HelpText: Allows CPU to automatically undemote from C1. Takes effect after reboot.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS005
+  DefaultValue: Enable
+  DisplayName: CPU C6 report
+  HelpText: Enable/Disable CPU C6(ACPI C3) report to OS
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: PMS006
+  DefaultValue: Disable
+  DisplayName: Enhanced Halt State (C1E)
+  HelpText: Core C1E auto promotion Control. Takes effect after reboot.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS01F
+  DefaultValue: ACPI C2
+  DisplayName: '  OS ACPI Cx'
+  HelpText: Report CC3/CC6 to OS ACPI C2 or ACPI C3
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: ACPI C2
+    ValueName: ACPI C2
+  - ValueDisplayName: ACPI C3
+    ValueName: ACPI C3
+- AttributeName: PMS007
+  DefaultValue: C0/C1 state
+  DisplayName: Package C State
+  HelpText: Package C State limit
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: C0/C1 state
+    ValueName: C0/C1 state
+  - ValueDisplayName: C2 state
+    ValueName: C2 state
+  - ValueDisplayName: C6(non Retention) state
+    ValueName: C6(non Retention) state
+  - ValueDisplayName: C6(Retention) state
+    ValueName: C6(Retention) state
+  - ValueDisplayName: No Limit
+    ValueName: No Limit
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: PMS022
+  DefaultValue: Disable
+  DisplayName: Dynamic L1
+  HelpText: PCU_MISC_CONFIG Bit[21] = dynamic L1 enable
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS020
+  DefaultValue: Disable
+  DisplayName: PKG C-state Lat. Neg.
+  HelpText: MSR 1FCh Bit[30] = PCH_NEG_DISABLE
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS021
+  DefaultValue: Disable
+  DisplayName: Enable PKGC_SA_PS_CRITERIA
+  HelpText: Program WRITE_PKGC_SA_PS_CRITERIA Sub Menu
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Auto
+    ValueName: Auto
+- AttributeName: PMS014
+  DefaultValue: Disable
+  DisplayName: Uncore Freq Scaling
+  HelpText: If disable, user can input Uncore Frequency.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS015
+  DefaultValue: 17
+  DisplayName: '    Uncore Freq:'
+  HelpText: User input Uncore Frequency override MSR 0x620 MinClrRatio[14:8] & MaxClrRatio[6:0]    If
+    input value > MAX_CLM_RATIO, then override with MAX_CLM_RATIO    If input value
+    < MIN_CLM_RATIO, then override with MIN_CLM_RATIO
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 127
+- AttributeName: PMS008
+  DefaultValue: BIOS Controls EPB
+  DisplayName: Power Performance Tuning
+  HelpText: 'Options decides who Controls EPB.  In OS mode: IA32_ENERGY_PERF_BIAS
+    is used  In BIOS mode: ENERGY_PERF_BIAS_CONFIG is used  In PECI mode: PCS53 is
+    used'
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: BIOS Controls EPB
+    ValueName: BIOS Controls EPB
+  - ValueDisplayName: PECI Controls EPB
+    ValueName: PECI Controls EPB
+- AttributeName: PMS009
+  DefaultValue: OS controls EPB
+  DisplayName: PECI PCS EPB
+  HelpText: Controls whether PECI has control over EPB
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: OS controls EPB
+    ValueName: OS controls EPB
+  - ValueDisplayName: PECI controls EPB using PCS
+    ValueName: PECI controls EPB using PCS
+- AttributeName: PMS00A
+  DefaultValue: Performance
+  DisplayName: ENERGY_PERF_BIAS_CFG mode
+  HelpText: Use input from ENERGY_PERF_BIAS_CONFIG mode selection. PERF/Balanced Perf/Balanced
+    Power/Power
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Performance
+    ValueName: Performance
+  - ValueDisplayName: Balanced Performance
+    ValueName: Balanced Performance
+  - ValueDisplayName: Balanced Power
+    ValueName: Balanced Power
+  - ValueDisplayName: Power
+    ValueName: Power
+- AttributeName: PMS013
+  DefaultValue: I/O sensitive
+  DisplayName: Workload Configuration
+  HelpText: This allows optimization for the workload characterization. The three
+    options for selection
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Balanced
+    ValueName: Balanced
+  - ValueDisplayName: I/O sensitive
+    ValueName: I/O sensitive
+- AttributeName: PMS00B
+  DefaultValue: Enable
+  DisplayName: PL1 Limit
+  HelpText: Enable/Disable PL1. If this option is disabled, BIOS will program the
+    default values for PL1 Power Limit and PL1 Time Window.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS00C
+  DefaultValue: 0
+  DisplayName: PL1 Power Limit
+  HelpText: PL1 Power Limit in Watts. The value may vary from 0 to Fused Value. If
+    the value is 0, the fused value will be programmed. A value greater than fused
+    TDP value will not be programmed.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 32767
+- AttributeName: PMS00D
+  DefaultValue: 1
+  DisplayName: PL1 Time Window
+  HelpText: PL1 value in seconds. The value may vary from 0 to 448. Indicates the
+    time window over which TDP value should be maintained. If the value is 0, the
+    fused value will be programmed.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 448
+- AttributeName: PMS00E
+  DefaultValue: Enable
+  DisplayName: PL2 Limit
+  HelpText: Enable/Disable PL2. If this option is disabled, BIOS will program the
+    default values for PL2 Power Limit and PL2 Time Window.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PMS00F
+  DefaultValue: 0
+  DisplayName: PL2 Power Limit
+  HelpText: PL2 Power Limit in Watts. The value may vary from 0 to Fused Value. If
+    the value is 0, BIOS programs 125% * TDP
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 32767
+- AttributeName: PMS010
+  DefaultValue: 1
+  DisplayName: PL2 Time Window
+  HelpText: PL2 value in seconds. The value may vary from 0 to 448. Indicates the
+    time window over which TDP value should be maintained. If the value is 0, the
+    fused value will be programmed.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 1
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 448
+- AttributeName: MDFX001
+  DefaultValue: PMem Management Driver
+  DisplayName: DIMM Management
+  HelpText: Selects whether BIOS Setup or the PMem Management Driver will control
+    the PMem.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: BIOS Setup
+    ValueName: BIOS Setup
+  - ValueDisplayName: PMem Management Driver
+    ValueName: PMem Management Driver
+- AttributeName: MDFX002
+  DefaultValue: Enabled
+  DisplayName: Load PMem Management Drivers
+  HelpText: Enable/Disable to load the PMem Management Drivers for PMem(install the
+    gNfitBindingProtocolGuid).
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: MDFX003
+  DefaultValue: Enabled
+  DisplayName: AppDirect
+  HelpText: Selects whether Persistent memory mode should be enabled.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disabled
+    ValueName: Disabled
+  - ValueDisplayName: Enabled
+    ValueName: Enabled
+- AttributeName: MEMS00B
+  DefaultValue: 8-way Interleave
+  DisplayName: Max Rank Interleaving in IMC
+  HelpText: Select Rank Interleaving setting
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: 1-way Interleave
+    ValueName: 1-way Interleave
+  - ValueDisplayName: 2-way Interleave
+    ValueName: 2-way Interleave
+  - ValueDisplayName: 4-way Interleave
+    ValueName: 4-way Interleave
+  - ValueDisplayName: 8-way Interleave
+    ValueName: 8-way Interleave
+- AttributeName: MDFX004
+  DefaultValue: Disable
+  DisplayName: PMem Partitioning
+  HelpText: Enable PMem partitioning.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: MDFX005
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S0 MC0 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket0 MC0
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX006
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S0 MC1 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket0 MC1
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX007
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S1 MC0 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket1 MC0
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX008
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S1 MC1 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket1 MC1
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX009
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S2 MC0 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket2 MC0
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX00A
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S2 MC1 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket2 MC1
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX00B
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S3 MC0 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket3 MC0
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: MDFX00C
+  DefaultValue: VOL:100% PMEM:0% AD-WB:0%
+  DisplayName: S3 MC1 Partition Ratio
+  HelpText: Partition ratios of VOL, PMEM and AD-WB region for PMem in Socket3 MC1
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: VOL:100% PMEM:0% AD-WB:0%
+    ValueName: VOL:100% PMEM:0% AD-WB:0%
+  - ValueDisplayName: VOL:0% PMEM:100% AD-WB:0%
+    ValueName: VOL:0% PMEM:100% AD-WB:0%
+- AttributeName: IRCS001
+  DefaultValue: Auto
+  DisplayName: Active Video
+  HelpText: Select active Video type
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Auto
+    ValueName: Auto
+  - ValueDisplayName: Onboard Device
+    ValueName: Onboard Device
+  - ValueDisplayName: PCIE Device
+    ValueName: PCIE Device
+- AttributeName: PCHS009
+  DefaultValue: Disable
+  DisplayName: USB Per-Connector Disable
+  HelpText: Selectively Enable/Disable each of the USB Physical Connector (physical
+    port).  Once a connector is disabled, any USB devices plug into the connector
+    will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00A
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #0 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00B
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #1 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00C
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #2 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00D
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #3 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00E
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #4 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS00F
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #5 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS010
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #6 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS011
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #7 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS012
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #8 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS013
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #9 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS014
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #10 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS015
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #11 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS016
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #12 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS017
+  DefaultValue: Enable
+  DisplayName: 'USB HS Physical Connector #13 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS018
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #0 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS019
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #1 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01A
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #2 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01B
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #3 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01C
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #4 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01D
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #5 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01E
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #6 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS01F
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #7 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS020
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #8 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS021
+  DefaultValue: Enable
+  DisplayName: 'USB SS Physical Connector #9 Disable'
+  HelpText: Enable/Disable this USB Physical Connector (physical port).  Once disabled,
+    any USB devices plug into the connector will not be detected by BIOS or OS.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS001
+  DefaultValue: Enable
+  DisplayName: SATA Controller
+  HelpText: Enable or Disable SATA Controller
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: PCHS002
+  DefaultValue: AHCI
+  DisplayName: Configure SATA as
+  HelpText: Identify the SATA port is connected to Solid State Drive or Hard Disk
+    Drive
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: AHCI
+    ValueName: AHCI
+  - ValueDisplayName: RAID
+    ValueName: RAID
+- AttributeName: PCHS005
+  DefaultValue: Enable
+  DisplayName: sSATA Controller
+  HelpText: Enable or Disable SATA Controller
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Enable
+    ValueName: Enable
+  - ValueDisplayName: Disable
+    ValueName: Disable
+- AttributeName: PCHS006
+  DefaultValue: AHCI
+  DisplayName: Configure sSATA as
+  HelpText: Identify the SATA port is connected to Solid State Drive or Hard Disk
+    Drive
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: AHCI
+    ValueName: AHCI
+  - ValueDisplayName: RAID
+    ValueName: RAID
+- AttributeName: SELS001
+  DefaultValue: Enable
+  DisplayName: System Errors
+  HelpText: System Error Enable/Disable setup options.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS002
+  DefaultValue: Enable
+  DisplayName: 'System Memory Poison '
+  HelpText: Enable/Disable System Memory Poison
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS003
+  DefaultValue: Disable
+  DisplayName: Viral Status
+  HelpText: Enable/Disable Viral
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS004
+  DefaultValue: Disable
+  DisplayName: System Cloaking
+  HelpText: When enabled, Corrected errors are masked from OS/SW visibility.This option
+    is valid only when EMCA is enabled
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS005
+  DefaultValue: Disable
+  DisplayName: Ignore OS EMCA Opt-in
+  HelpText: Enable/Disable Ignore OS EMCA Opt-in and log
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS006
+  DefaultValue: EMCA gen 2 CSMI
+  DisplayName: EMCA CMCI-SMI Morphing
+  HelpText: Enable/Disable EMCA CSMI
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: EMCA gen 2 CSMI
+    ValueName: EMCA gen 2 CSMI
+- AttributeName: SELS007
+  DefaultValue: EMCA gen 2 - MSMI
+  DisplayName: EMCA MCE-SMI Enable
+  HelpText: Enable/Disable EMCA Uncorrected SMI for gen2
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: EMCA gen 2 - MSMI
+    ValueName: EMCA gen 2 - MSMI
+- AttributeName: SELS008
+  DefaultValue: Enable
+  DisplayName: WHEA Support
+  HelpText: Enable/Disable WHEA support
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS009
+  DefaultValue: Enable
+  DisplayName: Memory Error
+  HelpText: Enable/Disable Memory Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS00A
+  DefaultValue: Enable
+  DisplayName: Memory Corrected Error
+  HelpText: Enable/Disable Memory Corrected Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS00C
+  DefaultValue: Enable
+  DisplayName: IIO/PCH Global Error Support
+  HelpText: Enable/Disable IIO/PCH Error Support.
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS00D
+  DefaultValue: Enable
+  DisplayName: IIO Coherent Interface Error
+  HelpText: Enable/Disable IIO Coherent Interface Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS00E
+  DefaultValue: Enable
+  DisplayName: IIO Misc. Error
+  HelpText: Enable/Disable IIO Misc. Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS00F
+  DefaultValue: Enable
+  DisplayName: IIO Vtd Error
+  HelpText: Enable/Disable IIO Vtd Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS010
+  DefaultValue: Enable
+  DisplayName: IIO Dma Error
+  HelpText: Enable/Disable IIO Dma Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS011
+  DefaultValue: Enable
+  DisplayName: IIO Dmi Error
+  HelpText: Enable/Disable IIO Dmi Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS012
+  DefaultValue: Enable
+  DisplayName: PCIE Error
+  HelpText: Enable/Disable PCIE Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS013
+  DefaultValue: Enable
+  DisplayName: IIO PCIE Additional Corrected Error
+  HelpText: Enable/Disable IIO PCIE Additional Corrected Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS014
+  DefaultValue: Enable
+  DisplayName: IIO PCIE Additional Uncorrected Error
+  HelpText: Enable/Disable IIO PCIE Additional Uncorrected Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS015
+  DefaultValue: Disable
+  DisplayName: PCIE Corrected Error Threshold Counter
+  HelpText: Enable/Disable PCIE Corrected Error Counter
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS016
+  DefaultValue: 1
+  DisplayName: PCIE Corrected Error Threshold
+  HelpText: 0x001 - 0x7fff
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 32767
+- AttributeName: SELS017
+  DefaultValue: Disable
+  DisplayName: PCIE AER Corrected Errors
+  HelpText: Enable/Disable PCIE AER Corrected Errors
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS019
+  DefaultValue: Enable
+  DisplayName: PCIE AER NonFatal Error
+  HelpText: Enable/Disable PCIE AER NonFatal Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS01A
+  DefaultValue: Enable
+  DisplayName: 'PCIE AER Fatal Error '
+  HelpText: Enable/Disable PCIE AER Fatal Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: SELS018
+  DefaultValue: Enable
+  DisplayName: PCIE AER Advisory Nonfatal Error
+  HelpText: Enable/Disable PCIE AER Advisory Nonfatal Error
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: MESS001
+  DefaultValue: Disable
+  DisplayName: PTT Support
+  HelpText: Enable/disable Platform Trusted Technology (PTT) support
+  ReadOnly: false
+  ResetRequired: true
+  Type: Enumeration
+  UefiNamespaceId: x-UEFI-AMI
+  Value:
+  - ValueDisplayName: Disable
+    ValueName: Disable
+  - ValueDisplayName: Enable
+    ValueName: Enable
+- AttributeName: MESS002
+  DefaultValue: 32768
+  DisplayName: Altitude
+  HelpText: The altitude of the platform location above the sea level, expressed in
+    meters. The hex number is decoded as 2's complement signed integer.  Provide the
+    8000h value if the altitude is unknown.
+  LowerBound: 0
+  ReadOnly: false
+  ResetRequired: true
+  ScalarIncrement: 0
+  Type: Integer
+  UefiNamespaceId: x-UEFI-AMI
+  UpperBound: 65535
+system_details:
+  BiosVersion: '0.29'
+  DetailsGatheredAt: 2023-08-22_121716
+  Id: Self
+  Manufacturer: ZTSYSTEMS
+  Model: ' '
+  Name: Proteus I_Mix
+  PartNumber: PA-00415-001
+  SerialNumber: 20739971N009

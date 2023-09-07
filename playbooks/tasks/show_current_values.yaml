@@ -1,0 +1,19 @@
+---
+- name: Get Current BIOS attribute values BLOCK
+  when: "'show-current-values' in ansible_run_tags"
+  tags:
+    - show-current-values
+  block:
+
+  - name: Request BIOS bios_attributes
+    community.general.redfish_info:
+      category: Systems
+      command: GetBiosAttributes
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_results
+
+  - name: Print fetched information
+    ansible.builtin.debug:
+      msg: "{{ rf_results }}"

@@ -1,0 +1,54 @@
+{%- macro generate_rf_bios_attributes(schema, setup_bios_attributes, cur_bios_atts) -%}
+{%-   set ctx = { "attributes": {}, "reboot_required": false } -%}
+{%-   for attribute,details in setup_bios_attributes.items() -%}
+{%-     if details is mapping -%}
+{{       select_bios_attribute_to_be_updated(ctx, schema, details, cur_bios_atts) }}
+{%-     elif details is sequence and details is not string -%}
+{%-       for it in details -%}
+{{         select_bios_attribute_to_be_updated(ctx, schema, it, cur_bios_atts) }}
+{%-       endfor -%}
+{%-     endif -%}
+{%-   endfor -%}
+{{ ctx }}
+{%- endmacro -%}
+
+{%- macro select_bios_attribute_to_be_updated(ctx, schema, details, cur_bios_atts) -%}
+{%-   if details.vendor_label not in cur_bios_atts or details.value != cur_bios_atts[details.vendor_label] -%}
+{%-     set _ = ctx.attributes.update({ details.vendor_label: details.value }) -%}
+{{      is_a_reboot_required(ctx, schema, details) }}
+{%-   endif -%}
+{%- endmacro -%}
+
+{%- macro is_a_reboot_required(ctx, schema, details) -%}
+{%-   if details.vendor_label in schema and 'ResetRequired' in schema[details.vendor_label] and schema[details.vendor_label].ResetRequired -%}
+{%-     set _ = ctx.update({"reboot_required": true}) -%}
+{%-   endif -%}
+{%- endmacro -%}
+
+{%- macro generate_applied_changes_report(prev_bios_atts, after_bios_atts) -%}
+{%-   set changes = {"Added": {}, "Delete": {}, "Modified": {}} -%}
+{%-   for att,val in after_bios_atts.items() -%}
+{%-     if att in prev_bios_atts -%}
+{%-       if val != prev_bios_atts[att] -%}
+{%-         set _ = changes["Modified"].update({att: {"previous_value": prev_bios_atts[att], "new_value": val}}) -%}
+{%-       endif -%}
+{%-     else -%}
+{%-       set _ = changes["Added"].update({att: val}) -%}
+{%-     endif -%}
+{%-   endfor -%}
+{%-   for att,val in prev_bios_atts.items() -%}
+{%-     if att not in after_bios_atts -%}
+{%-       set _ = changes["Delete"].update({att: val}) -%}
+{%-     endif -%}
+{%-   endfor -%}
+{%-   set m = {} -%}
+{%-   for k,v in changes.items() -%}
+{%-     if v -%}
+{%-       set _ = m.update({k: v}) -%}
+{%-     endif -%}
+{%-   endfor -%}
+{%-   if m -%}
+{%-     set _ = m.update({"Report_Date": ('%Y-%m-%d_%H%M%S' | strftime) }) -%}
+{%-   endif -%}
+{{    m }}
+{%- endmacro -%}

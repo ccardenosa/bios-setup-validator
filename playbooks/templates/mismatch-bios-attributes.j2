@@ -1,0 +1,36 @@
+{%- macro look_for_mismatches_between_inventoy_and_current_attributes(ctx, schema, setup_bios_attributes, cur_bios_atts) -%}
+{%-   set mismatches = {} -%}
+{%-   for attribute,details in setup_bios_attributes.items() -%}
+{%-     if details is mapping -%}
+{{      look_for_mismatches(mismatches, schema, attribute, details, cur_bios_atts) }}
+{%-     elif details is sequence and details is not string -%}
+{%-       set ns = namespace(l=[]) -%}
+{%-       for it in details -%}
+{%-         set tmp_mismatches = {} -%}
+{{        look_for_mismatches(tmp_mismatches, schema, attribute, it, cur_bios_atts) }}
+{%-         if tmp_mismatches -%}
+{%-           set ns.l = ns.l + [ tmp_mismatches[attribute] ] -%}
+{%-         endif -%}
+{%-       endfor -%}
+{%-       if ns.l -%}
+{%-         set _ = mismatches.update({ attribute: ns.l }) -%}
+{%-       endif -%}
+{%-     endif -%}
+{%-   endfor -%}
+{%-   if mismatches -%}
+{%-     set ctx = { "verification": { "result": "FAILED", "mismatches": mismatches } } -%}
+{%-   endif -%}
+{{ ctx | to_nice_yaml(indent=2) }}
+{%- endmacro -%}
+
+{%- macro look_for_mismatches(mismatches, schema, attribute, details, cur_bios_atts) -%}
+{%-   if details.vendor_label in cur_bios_atts and cur_bios_atts[details.vendor_label] != details.value -%}
+{%-     set m = {"vendor_label": details.vendor_label, "value_set_in_local_invenroty": details.value, "value_get_from_remote_bios": cur_bios_atts[details.vendor_label], "schema": schema[details.vendor_label]} -%}
+{%-     set _ = mismatches.update({ attribute: m }) -%}
+{%-   elif (not details.vendor_label in cur_bios_atts and 'Hidden' not in schema[details.vendor_label]) or ('Hidden' in schema[details.vendor_label] and not schema[details.vendor_label].Hidden) -%}
+{%-     set m = {"expected_vendor_label": details.vendor_label, "explanation": "This vendor label does not exist", "schema": schema[details.vendor_label]} -%}
+{%-     set _ = mismatches.update({ attribute: m }) -%}
+{%-   endif -%}
+{%- endmacro -%}
+
+{{ look_for_mismatches_between_inventoy_and_current_attributes(test_mismatches, bios_schema, from_inventory_bios_atts, cur_bios_atts) }}

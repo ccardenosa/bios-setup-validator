@@ -1,0 +1,91 @@
+---
+- name: Generate an inventory with the recommended BIOS attribute BLOCK
+  when: "'generate-inventory-template' in ansible_run_tags"
+  tags:
+    - generate-inventory-template
+
+  vars:
+    vendor_label_id: "{{ label_id | default('bmc') }}"
+  block:
+
+  - name: Load recommended BIOS attribute names
+    ansible.builtin.include_vars: ./vars/bios_attributes.yaml
+
+  - name: Generate BIOS attribute inventory template object
+    ansible.builtin.set_fact:
+      vendor_label: "{{vlabel}}"
+      generate_hosts_template: |-
+        {%- set bmcs = {} -%}
+        {%- set h = [ "1", "2", "N" ] -%}
+        {%- for bh in h -%}
+        {%-   set bmc_system_name = "bmc_system_name_" + bh -%}
+        {%-   set bmc_host = "bmc_hostname_or_ip_" + bh -%}
+        {%-   set _ = bmcs.update({bmc_system_name: {"bmc_host": bmc_host}}) -%}
+        {%- endfor -%}
+        {%- set m = { "all": { "children": {"bmc": {}}}} -%}
+        {%- if vlabel == 'bmc' -%}
+        {%-   set _ = m.all.children.bmc.update({"hosts": bmcs, "vars": creds}) -%}
+        {%- else -%}
+        {%-   set _ = m.all.children.bmc.update({ "children": {vlabel: {"hosts": bmcs, "vars": creds}}}) -%}
+        {%- endif -%}
+        {{ m }}
+      generate_bios_attributes_template: |-
+        {%- set res = { vlabel: { "vars": { "bios_attributes": {} }}} -%}
+        {%- for att in recommended_fw_conf.bios_attributes -%}
+        {%-   set _ = res[vlabel].vars.bios_attributes.update({att: { "vendor_label": "", "value": ""}}) -%}
+        {%- endfor -%}
+        {{ res }}
+    vars:
+      vlabel: "{{ vendor_label_id | replace('.', '_') | replace('-', '_') }}"
+      creds: {"bmc_username": "", "bmc_password": ""}
+
+  - name: Create custom inventories directory
+    when: 'inventory_folder is defined'
+    ansible.builtin.file:
+      path: "{{inventory_folder}}"
+      state: directory
+      mode: '0755'
+
+  - name: Create temporary inventories directory
+    when: 'inventory_folder is not defined'
+    ansible.builtin.tempfile:
+      state: directory
+      prefix: generated-inventory-
+    register: inventory_tmp_folder
+
+  - name: Dump host inventory into a Yaml file
+    ansible.builtin.copy:
+      content: "{{ generate_hosts_template | to_nice_yaml(indent=2) }}"
+      dest: |-
+        {%- if inventory_folder is defined -%}
+        {{ inventory_folder }}
+        {%- else -%}
+        {{ inventory_tmp_folder.path }}
+        {%- endif -%}
+        /{{ vendor_label_id }}-bmc-hosts.yaml
+
+  - name: Dump BIOS attribute inventory into a Yaml file
+    ansible.builtin.copy:
+      content: "{{ generate_bios_attributes_template | to_nice_yaml(indent=2) }}"
+      dest: |-
+        {%- if inventory_folder is defined -%}
+        {{ inventory_folder }}
+        {%- else -%}
+        {{ inventory_tmp_folder.path }}
+        {%- endif -%}
+        /{{ vendor_label_id }}-bios-attributes.yaml
+
+  - name: New Generate Inventories path
+    when: true
+    ansible.builtin.debug:
+      msg:
+        - "Find the auto-generate inventory at:"
+        - "{{out_path}}/{{ vendor_label_id }}-bmc-hosts.yaml"
+        - "{{out_path}}/{{ vendor_label_id }}-bios-attributes.yaml"
+    vars:
+      out_path: |-
+        {%- if inventory_folder is defined %}
+        {{ inventory_folder }}
+        {%- else %}
+        {{ inventory_tmp_folder.path }}
+        {%- endif %}

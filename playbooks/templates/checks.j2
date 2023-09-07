@@ -1,0 +1,56 @@
+{%- macro is_vendor_label_and_value_defined_and_have_a_valid_attribute_name(ctx, schema, setup_bios_attributes) -%}
+{%- set fails = {} -%}
+{%- for attribute,details in setup_bios_attributes.items() -%}
+{%-   if details is mapping -%}
+{{    is_vendor_label_and_value_defined_and_the_attributename_is_valid(fails, schema, attribute, details) }}
+{%-   elif details is sequence and details is not string -%}
+{%-     set ns = namespace(l=[]) -%}
+{%-     for it in details -%}
+{%-       set tmp_fails = {} -%}
+{{        is_vendor_label_and_value_defined_and_the_attributename_is_valid(tmp_fails, schema, attribute, it) }}
+{%-       if tmp_fails -%}
+{%-         set ns.l = ns.l + [ tmp_fails[attribute]["message"] ] -%}
+{%-       endif -%}
+{%-     endfor -%}
+{%-     if ns.l -%}
+{{        add_fail(fails, attribute, ns.l) }}
+{%-     endif -%}
+{%-   else -%}
+{%-     set msg = "Wrong type. The expected type must be an Object or list of Objects having both `vendor_label` and `value` field defined" -%}
+{{      add_fail(fails, attribute, msg) }}
+{%-   endif -%}
+{%- endfor -%}
+{{ update_results(ctx, fails) }}
+{%- endmacro -%}
+
+{%- macro add_fail(fails, attribute, msg) -%}
+{%-  set ret = {"message": msg} -%}
+{%-  set _ = fails.update({attribute: ret}) -%}
+{%- endmacro -%}
+
+{%- macro update_results(ctx, fails) -%}
+{%-   if fails -%}
+{%-     set ret = {"result": "FAIL", "wrong_bios_attributes": fails} -%}
+{%-     set _ = ctx.update({"verification": ret }) -%}
+{%-   endif -%}
+{{ ctx }}
+{%- endmacro -%}
+
+{%- macro is_vendor_label_and_value_defined_and_the_attributename_is_valid(fails, schema, attribute, details) -%}
+{%-   if "vendor_label" not in details -%}
+{%-     set msg = ["`vendor_label` field must be defined. Found:", details] -%}
+{{      add_fail(fails, attribute, msg) }}
+{%-   elif "value" not in details -%}
+{%-     set msg = ["`value` field must be defined. Found:", details] -%}
+{{      add_fail(fails, attribute, msg) }}
+{%-   else -%}
+{{      is_the_setup_vendor_label_a_valid_attribute_name(fails, schema, attribute, details) }}
+{%-   endif -%}
+{%- endmacro -%}
+
+{%- macro is_the_setup_vendor_label_a_valid_attribute_name(fails, schema, attribute, details) -%}
+{%-   if details.vendor_label not in schema -%}
+{%-     set msg = ["Wrong `vendor_label` detected in your inventory. No such a attribute name found:", details] -%}
+{{      add_fail(fails, attribute, msg) }}
+{%-   endif -%}
+{%- endmacro -%}

@@ -1,0 +1,7 @@
+{%- macro generate_dict_from_list(schema, key) -%}
+{%-  set d={} -%}
+{%-  for it in schema.Attributes -%}
+{%-     set _ = d.update({it.AttributeName: it}) -%}
+{%-  endfor -%}
+{{   d }}
+{%- endmacro -%}

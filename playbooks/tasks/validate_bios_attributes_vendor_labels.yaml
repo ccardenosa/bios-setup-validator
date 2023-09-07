@@ -1,0 +1,31 @@
+---
+- name: Create verification results temp directory
+  ansible.builtin.tempfile:
+    state: directory
+    prefix: generated-inventory-mismatches-
+  register: gen_mismatch_dir
+
+- name: Set verification result file name
+  ansible.builtin.set_fact:
+    gen_verif_result_filename: "{{ gen_mismatch_dir.path }}/{{ fname }}"
+  vars:
+    fname: "{{ bmc_host }}-vendor-verification-results-bios-attributes.yaml"
+
+- name: Load BIOS attributes JSON Schema
+  ansible.builtin.include_tasks: ./load_bios_schema.yaml
+
+- name: Checking if `vendor_label` names exist in the BIOS attributes JSON Schema
+  ansible.builtin.set_fact:
+    test_res: |-
+      {%- import 'templates/checks.j2' as checks -%}
+      {{ checks.is_vendor_label_and_value_defined_and_have_a_valid_attribute_name(res, bios_schema, from_inventory_bios_atts) }}
+  vars:
+    bios_schema: "{{ json_schema_by_attr_name }}"
+    from_inventory_bios_atts: "{{bios_attributes}}"
+    res: {"verification": {"result": "OK", "message": "The vendor labels in your inventory are correct"}}
+
+- name: Checking if wrong settings were found in the inventory
+  when: "test_res.verification.result != 'OK'"
+  ansible.builtin.copy:
+    content: "{{ test_res | to_nice_yaml(indent=2) }}"
+    dest: "{{ gen_verif_result_filename }}"

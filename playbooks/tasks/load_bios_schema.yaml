@@ -1,0 +1,18 @@
+---
+- name: Get BIOS attributes JSON Schema
+  when: schemas_folder is not defined
+  ansible.builtin.include_tasks: ./get_bios_attributes_jsonschema.yaml
+
+- name: Get BIOS attributes JSON Schema from cache file
+  when: schemas_folder is defined
+  ansible.builtin.set_fact:
+    bios_attributes_json_schema: "{{ lookup('template', cache_file_path) | from_yaml }}"
+  vars:
+    cache_file_path: "{{ schemas_folder }}/{{ bmc_host }}-vendor-bios-json-schema.yaml"
+
+- name: Load BIOS attributes JSON schema into an Object
+  when: schemas_folder is defined
+  ansible.builtin.set_fact:
+    json_schema_by_attr_name: |-
+      {%- import 'templates/utils.j2' as utils -%}
+      {{ utils.generate_dict_from_list(bios_attributes_json_schema, key='AttributeName') }}

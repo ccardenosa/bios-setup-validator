@@ -1,0 +1,22 @@
+---
+recommended_fw_conf:
+  bios_attributes:
+    WorkloadProfile: "TelcoOptimizedProfile"
+    HyperThreading: "Enabled or Disabled"
+    HyperTransport: "Enabled"
+    # UEFI: "Enabled"
+    Boot_Mode: UEFI
+    CPU_Power_and_Performance_Policy: "Performance"
+    Uncore_Frequency_Scaling: "Disabled"
+    Uncore_Frequency: "Maximum"
+    Performance_P_limit: "Disabled"
+    Enhanced_Intel_SpeedStep_Tech: "Enabled"
+    Intel_Turbo_Boost_Technology: "Enabled"
+    Intel_Configurable_TDP: "Enabled"
+    Configurable_TDP_Level: "Level 2"
+    Energy_Efficient_Turbo: "Disabled"
+    Hardware_P_States: "Disabled"
+    Package_C_State: "C0/C1 state"
+    C1E: "Disabled"
+    Processor_C6: "Disabled"
+    Sub_NUMA_Clustering: "Disabled"

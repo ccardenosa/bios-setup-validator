@@ -1,0 +1,186 @@
+---
+- name: Reconcile BIOS attribute values from local inventory to remote system BIOS BLOCK
+  when: "'reconcile-bios-values' in ansible_run_tags"
+  tags:
+    - reconcile-bios-values
+  vars:
+    operation_timeout: 600
+    inventory_verification: "{{ not (skip_inventory_verification is defined and skip_inventory_verification) | bool }}"
+
+  block:
+
+  - name: Load BIOS attributes JSON Schema
+    when: not inventory_verification
+    ansible.builtin.include_tasks: ./load_bios_schema.yaml
+
+  - name: Checking if the setup 'vendor_label' for BIOS attributes are right
+    when: inventory_verification
+    ansible.builtin.include_tasks: ./validate_bios_attributes_vendor_labels.yaml
+
+  - name: Inventories verification results
+    when: "inventory_verification and test_res.verification.result != 'OK'"
+    ansible.builtin.fail:
+      msg:
+        - "FAILED verification report is at {{ gen_verif_result_filename }}"
+
+  - name: Get System Inventory details
+    when: not (system_details is defined and 'Id' in system_details)
+    community.general.redfish_info:
+      category: Systems
+      command: GetSystemInventory
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_system_inventory
+
+  # - name: Print fetched information 2
+  #   when: not (system_details is defined and 'Id' in system_details)
+  #   ansible.builtin.debug:
+  #     msg:
+  #       - "{{rf_system_inventory}}"
+
+  - name: Request BIOS current BIOS Attributes before the update
+    community.general.redfish_info:
+      category: Systems
+      command: GetBiosAttributes
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_cur_bios_atts
+
+  - name: Generate BIOS attributes setup from inventory to Redfish_config module
+    ansible.builtin.set_fact:
+      bios_attributes_before_applying_the_update: "{{prev_bios_atts}}"
+      system_id_where_apply_bios_changes: |-
+        {%- if resource_id is defined -%}
+        {{    resource_id }}
+        {%- elif system_details is defined and 'Id' in system_details -%}
+        {{    system_details.Id }}
+        {%- else -%}
+        {{    system_inventory_from_rf.Id }}
+        {%- endif -%}
+      rf_bios_attributes: |-
+        {%- import 'templates/generate-redfish-bios-attributes.j2' as render -%}
+        {{ render.generate_rf_bios_attributes(bios_schema, from_inventory_bios_atts, prev_bios_atts) }}
+    vars:
+      bios_schema: "{{ json_schema_by_attr_name }}"
+      prev_bios_atts: "{{rf_cur_bios_atts.redfish_facts.bios_attribute.entries.0.1}}"
+      from_inventory_bios_atts: "{{bios_attributes}}"
+      system_inventory_from_rf: "{{ rf_system_inventory.redfish_facts.system.entries.0.1 }}"
+
+  - name: BIOS attribute changes about to be applied info
+    ansible.builtin.debug:
+      msg:
+        - "The below BIOS attribute changes are about to be applied"
+        - "{{rf_bios_attributes}}"
+        - "For `{{system_id_where_apply_bios_changes}}` resource_id system"
+
+  - name: Nothing to reconcile. Local BIOS attributes
+          have same values than remote ones. Exiting...
+    when: not rf_bios_attributes.attributes
+    ansible.builtin.meta: end_host
+
+  - name: Applying updated BIOS attributes values
+    when: rf_bios_attributes.attributes
+    community.general.redfish_config:
+      category: Systems
+      command: SetBiosAttributes
+      resource_id: "{{ system_id_where_apply_bios_changes }}"
+      bios_attributes: "{{rf_bios_attributes.attributes}}"
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+      timeout: "{{ operation_timeout }}"
+    register: rf_results
+
+  # - name: Print BIOS update results
+  #   ansible.builtin.debug:
+  #     msg: "{{ rf_results }}"
+
+  - name: Rebooting the system [if required]
+    when: rf_bios_attributes.reboot_required
+    community.general.redfish_command:
+      category: Systems
+      command: PowerForceRestart
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_results
+
+  # - name: Print reboot results
+  #   ansible.builtin.debug:
+  #     msg: "{{ rf_results }}"
+
+  # - name: Load Power Status check
+  #   when: rf_bios_attributes.reboot_required
+  #   ansible.builtin.include_tasks: ./wait_for_power_status.yaml
+  #   vars:
+  #     wait_for_power: "{{ pwr }}"
+  #   loop:
+  #     - 'Off'
+  #     - 'On'
+  #   loop_control:
+  #     loop_var: pwr
+
+  - name: Wait until BIOS Attributes after the update are applied
+    community.general.redfish_info:
+      category: Systems
+      command: GetBiosAttributes
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_cur_bios_atts
+    until: bios_attributes_changes
+    # Wait 20 min, checking each 20 seconds
+    delay: 20
+    retries: 60
+    vars:
+      bios_attributes_changes: |-
+        {%- import 'templates/generate-redfish-bios-attributes.j2' as render -%}
+        {{ render.generate_applied_changes_report(bios_attributes_before_applying_the_update, after_bios_atts) }}
+      after_bios_atts: "{{rf_cur_bios_atts.redfish_facts.bios_attribute.entries.0.1}}"
+
+  - name: Generate report about BIOS attributes changes applied
+    ansible.builtin.set_fact:
+      bios_attributes_changes: |-
+        {%- import 'templates/generate-redfish-bios-attributes.j2' as render -%}
+        {{ render.generate_applied_changes_report(bios_attributes_before_applying_the_update, after_bios_atts) }}
+    vars:
+      after_bios_atts: "{{rf_cur_bios_atts.redfish_facts.bios_attribute.entries.0.1}}"
+      # bios_attributes_before_applying_the_update_: {
+      #           "CSM007": "UEFI",
+      #           "CSM008": "UEFI",
+      #           "CSM009": "UEFI",
+      #           "CSM010": "UEFI",
+      #           "PMS006": "Disable"
+      #       }
+      # after_bios_atts: {
+      #           "CSM007": "Legacy",
+      #           "CSM008": "Legacy",
+      #           "CSM009": "Legacy",
+      #           "CSM010": "Legacy",
+      #           "PMS006": "Enable"
+      #       }
+
+  # - name: Print reboot results
+  #   ansible.builtin.debug:
+  #     msg: "{{ bios_attributes_changes }}"
+
+  - name: Create BIOS attribute changes results temp directory
+    when: bios_attributes_changes
+    ansible.builtin.tempfile:
+      state: directory
+      prefix: generated-bios-attributes-changes-
+    register: gen_changes_dir
+
+  - name: Dump BIOS attribute changes into a Yaml file
+    when: bios_attributes_changes
+    ansible.builtin.copy:
+      content: "{{ bios_attributes_changes | to_nice_yaml(indent=2) }}"
+      dest: "{{ gen_changes_dir.path }}/{{ bmc_host }}-vendor-bios-attributes-changes.yaml"
+
+  - name: BIOS attribute changes results report
+    when: bios_attributes_changes
+    ansible.builtin.debug:
+      msg:
+        - "Find the verification report at {{ gen_changes_dir.path }}/{{ bmc_host }}-vendor-bios-attributes-changes.yaml"

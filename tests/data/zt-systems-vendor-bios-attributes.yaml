@@ -1,0 +1,39 @@
+zt_systems:
+  vars:
+    bios_attributes:
+      HyperThreading:
+        vendor_label: PRSS011
+      Boot_Mode:
+        - vendor_label: CSM007
+        - vendor_label: CSM008
+        - vendor_label: CSM009
+        - vendor_label: CSM010
+      HyperTransport:
+      CPU_Power_and_Performance_Policy:
+        vendor_label: PMS00A
+      Uncore_Frequency_Scaling:
+        vendor_label: PMS014
+      Uncore_Frequency:
+        vendor_label: KTIS001
+      Performance_P_limit:
+        vendor_label:
+      Enhanced_Intel_SpeedStep_Tech:
+        vendor_label: PMS001
+      Intel_Turbo_Boost_Technology:
+        vendor_label:
+      Intel_Configurable_TDP:
+        vendor_label:
+      Configurable_TDP_Level:
+        vendor_label: PMS011
+      Energy_Efficient_Turbo:
+        vendor_label: PMS01A
+      Hardware_P_States:
+        vendor_label: PMS003
+      Package_C_State:
+        vendor_label: PMS007
+      C1E:
+        vendor_label: PMS006
+      Processor_C6:
+        vendor_label: PMS005
+      Sub_NUMA_Clustering:
+        vendor_label:

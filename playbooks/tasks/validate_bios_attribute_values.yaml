@@ -1,0 +1,49 @@
+---
+- name: Verify Current BIOS attribute values BLOCK
+  when: "'verify-values' in ansible_run_tags"
+  tags:
+    - verify-values
+  block:
+
+  - name: Checking if the setup `vendor_label` for BIOS attributes are right
+    ansible.builtin.include_tasks: ./validate_bios_attributes_vendor_labels.yaml
+
+  - name: Request BIOS bios_attributes
+    when: "test_res.verification.result == 'OK'"
+    community.general.redfish_info:
+      category: Systems
+      command: GetBiosAttributes
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_results
+
+  # - name: Print fetched information
+  #   when: "test_res.verification.result == 'OK'"
+  #   ansible.builtin.debug:
+  #     msg:
+  #       - "{{cur_bios_atts}}"
+  #       - "{{from_inventory_bios_atts}}"
+  #   vars:
+  #     cur_bios_atts: "{{rf_results.redfish_facts.bios_attribute.entries.0.1}}"
+  #     from_inventory_bios_atts: "{{bios_attributes}}"
+
+  - name: Get the value for each defined BIOS attribute
+          in the inventory
+    when: "test_res.verification.result == 'OK'"
+    ansible.builtin.template:
+      src: templates/mismatch-bios-attributes.j2
+      dest: "{{ gen_verif_result_filename }}"
+    vars:
+      bios_schema: "{{ json_schema_by_attr_name }}"
+      cur_bios_atts: "{{rf_results.redfish_facts.bios_attribute.entries.0.1}}"
+      from_inventory_bios_atts: "{{bios_attributes}}"
+      test_mismatches: {"verification": {"result": "OK", "message": "All BIOS attribute values are the expected"}}
+
+  - name: Inventories verification results
+    ansible.builtin.debug:
+      msg:
+        - "Find the verification report at {{ gen_verif_result_filename }}"
+    #     - "{{ ret }}"
+    # vars:
+    #   ret: "{{ lookup('template', gen_verif_result_filename) | from_yaml }}"

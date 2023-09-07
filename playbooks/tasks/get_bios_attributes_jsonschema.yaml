@@ -1,0 +1,165 @@
+---
+- name: Get BIOS attributes JSON Schema BLOCK
+  when: "'get-bios-attributes-jsonschema' in ansible_run_tags or
+         'get-current-values'             in ansible_run_tags or
+         'verify-values'                  in ansible_run_tags or
+         'reconcile-bios-values'          in ansible_run_tags"
+  tags:
+    - get-bios-attributes-jsonschema
+    - get-current-values
+    - verify-values
+    - reconcile-bios-values
+  vars:
+    validate_certs: no
+  block:
+
+  - name: Create session
+    community.general.redfish_command:
+      category: Sessions
+      command: CreateSession
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: redfish_session_results
+
+  - name: Get Session token
+    ansible.builtin.set_fact:
+      current_session: "{{ redfish_session_results.session }}"
+
+  - name: Get System Inventory details
+    community.general.redfish_info:
+      category: Systems
+      command: GetSystemInventory
+      baseuri: "{{ bmc_host }}"
+      auth_token: "{{ current_session.token }}"
+    register: rf_system_inventory
+
+  - name: Get BIOS attribute end points
+    ansible.builtin.uri:
+      url: "https://{{ bmc_host }}/redfish/v1/Registries/"
+      validate_certs: "{{ validate_certs }}"
+      force_basic_auth: true
+      method: GET
+      headers:
+        Content-Type: "application/json; charset=utf-8"
+        OData-Version: "4.0"
+        X-Auth-Token: "{{ current_session.token }}"
+    register: schemas_endpoints
+
+  - name: Get BIOS registry end points
+    ansible.builtin.uri:
+      url: "https://{{ bmc_host }}{{bios_registry_endpoint}}"
+      validate_certs: "{{ validate_certs }}"
+      force_basic_auth: true
+      method: GET
+      headers:
+        Content-Type: "application/json; charset=utf-8"
+        OData-Version: "4.0"
+        X-Auth-Token: "{{ current_session.token }}"
+    register: schemas_endpoints
+    vars:
+      bios_registry_endpoint: |-
+        {%- for m in schemas_endpoints.json.Members -%}
+        {%-  set found = false -%}
+        {%-  if 'BiosAttributeRegistry' in m['@odata.id'] and not found -%}
+        {{     m['@odata.id'] }}
+        {%-    set found = true -%}
+        {%-  endif -%}
+        {%- endfor -%}
+
+  - name: Get BIOS attribute english language end points
+    ansible.builtin.uri:
+      url: "https://{{ bmc_host }}{{en_endpoint}}"
+      validate_certs: "{{ validate_certs }}"
+      force_basic_auth: true
+      method: GET
+      headers:
+        Content-Type: "application/json; charset=utf-8"
+        OData-Version: "4.0"
+        X-Auth-Token: "{{ current_session.token }}"
+    register: schemas_endpoints
+    vars:
+      en_endpoint: |-
+        {%- for loc in schemas_endpoints.json.Location -%}
+        {%-  if loc['Language'] in ['en', 'en-US'] -%}
+        {{     loc.Uri }}
+        {%-  endif -%}
+        {%- endfor -%}
+
+  - name: Store BIOS attributes JSON schema
+    when: "'get-current-values' in ansible_run_tags or
+           'verify-values' in ansible_run_tags or
+           'reconcile-bios-values' in ansible_run_tags"
+    ansible.builtin.set_fact:
+      json_schema_by_attr_name: |-
+        {%- import 'templates/utils.j2' as utils -%}
+        {{ utils.generate_dict_from_list(bios_attributes_json_schema, key='AttributeName') }}
+    vars:
+      bios_attributes_json_schema: { "Attributes": "{{schemas_endpoints.json.RegistryEntries.Attributes }}" }
+
+  - name: Create custom JSON schemas directory
+    when: "'get-bios-attributes-jsonschema' in ansible_run_tags and
+            schemas_folder is defined"
+    ansible.builtin.file:
+      path: "{{schemas_folder}}"
+      state: directory
+      mode: '0755'
+
+  - name: Create temporary JSON schemas directory
+    when: "'get-bios-attributes-jsonschema' in ansible_run_tags and
+            schemas_folder is not defined"
+    ansible.builtin.tempfile:
+      state: directory
+      prefix: generated-schemas-
+    register: schemas_tmp_folder
+
+  - name: Dump retreived BIOS attribute JSON schema into a Yaml file
+    when: "'get-bios-attributes-jsonschema' in ansible_run_tags"
+    ansible.builtin.copy:
+      content: "{{ bios_attributes | to_nice_yaml(indent=2) }}"
+      dest: |-
+        {%- if schemas_folder is defined -%}
+        {{ schemas_folder }}
+        {%- else -%}
+        {{ schemas_tmp_folder.path }}
+        {%- endif -%}
+        /{{ bmc_host }}-vendor-bios-json-schema.yaml
+    vars:
+      system_inventory_details_to_get:
+        - Id
+        - Manufacturer
+        - Model
+        - Name
+        - PartNumber
+        - BiosVersion
+        - SerialNumber
+      system_inventory_from_rf: "{{rf_system_inventory.redfish_facts.system.entries.0.1}}"
+      system_inventory: |-
+        {%- import 'templates/update-bios-attributes.j2' as render -%}
+        {{ render.get_system_inventory_details(system_inventory_from_rf, system_inventory_details_to_get) }}
+      bios_attributes: {
+        "Attributes": "{{schemas_endpoints.json.RegistryEntries.Attributes}}",
+        "system_details": "{{system_inventory}}" }
+
+  - name: New Generate JSON schema path
+    when: "'get-bios-attributes-jsonschema' in ansible_run_tags"
+    ansible.builtin.debug:
+      msg: |-
+        Find the JSON schema path at{{" "}}
+        {%- if schemas_folder is defined %}
+        {{ schemas_folder }}
+        {%- else %}
+        {{ schemas_tmp_folder.path }}
+        {%- endif %}
+        /{{ bmc_host }}-vendor-bios-json-schema.yaml
+
+  always:
+
+  - name: Delete session (No worries, it fails if the session has already expired)
+    ignore_errors: true
+    community.general.redfish_command:
+      category: Sessions
+      command: DeleteSession
+      baseuri: "{{ bmc_host }}"
+      auth_token: "{{ current_session.token }}"
+      session_uri: "{{ current_session.uri }}"

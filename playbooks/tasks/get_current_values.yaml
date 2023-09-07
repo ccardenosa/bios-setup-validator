@@ -1,0 +1,105 @@
+---
+- name: Get Current BIOS attribute values BLOCK
+  when: "'get-current-values' in ansible_run_tags"
+  tags:
+    - get-current-values
+  block:
+
+  - name: Load BIOS attributes JSON Schema
+    ansible.builtin.include_tasks: ./load_bios_schema.yaml
+
+  - name: Get System Inventory details
+    community.general.redfish_info:
+      category: Systems
+      command: GetSystemInventory
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_system_inventory
+
+  - name: Request BIOS bios_attributes
+    community.general.redfish_info:
+      category: Systems
+      command: GetBiosAttributes
+      baseuri: "{{ bmc_host }}"
+      username: "{{ bmc_username }}"
+      password: "{{ bmc_password }}"
+    register: rf_cur_bios_atts
+
+  # - name: Print fetched information
+  #   when: false
+  #   ansible.builtin.debug:
+  #     msg:
+  #       - "{{cur_bios_atts}}"
+  #       - "{{from_inventory_bios_atts}}"
+  #   vars:
+  #     cur_bios_atts: "{{rf_cur_bios_atts.redfish_facts.bios_attribute.entries.0.1}}"
+  #     from_inventory_bios_atts: "{{bios_attributes}}"
+
+  - name: Get the value for each defined BIOS attributes
+          in the inventory
+    when: true
+    ansible.builtin.set_fact:
+      updated_bios_attributes: |-
+        { "vendor_for_{{ bmc_host | replace('.', '_') | replace('-', '_') }}_system": { "vars": { "system_details": {{ system_inventory }}, "bios_attributes": {{ auto_complete_inventory_bios_atts }} } } }
+    vars:
+      system_inventory_details_to_get:
+        - Id
+        - Manufacturer
+        - Model
+        - Name
+        - PartNumber
+        - BiosVersion
+        - SerialNumber
+      system_inventory_from_rf: "{{rf_system_inventory.redfish_facts.system.entries.0.1}}"
+      system_inventory: |-
+        {%- import 'templates/update-bios-attributes.j2' as render -%}
+        {{ render.get_system_inventory_details(system_inventory_from_rf, system_inventory_details_to_get) }}
+      cur_bios_atts: "{{rf_cur_bios_atts.redfish_facts.bios_attribute.entries.0.1}}"
+      from_inventory_bios_atts: "{{bios_attributes}}"
+      auto_complete_inventory_bios_atts: |-
+        {%- import 'templates/update-bios-attributes.j2' as render -%}
+        {{ render.update_bios_attributes_using_remote_bmc_values(bios_schema, from_inventory_bios_atts, cur_bios_atts) }}
+      bios_schema: "{{ json_schema_by_attr_name }}"
+
+  - name: Print fetched information
+    when: false
+    ansible.builtin.debug:
+      msg: "{{ updated_bios_attributes }}"
+
+  - name: Create custom inventories directory
+    when: 'inventory_folder is defined'
+    ansible.builtin.file:
+      path: "{{inventory_folder}}"
+      state: directory
+      mode: '0755'
+
+  - name: Create temporary inventories directory
+    when: 'inventory_folder is not defined'
+    ansible.builtin.tempfile:
+      state: directory
+      prefix: generated-inventory-
+    register: inventory_tmp_folder
+
+  - name: Dump retreived BIOS attribute values into a Yaml file
+    ansible.builtin.copy:
+      content: "{{ updated_bios_attributes | to_nice_yaml(indent=2) }}"
+      dest: |-
+        {%- if inventory_folder is defined -%}
+        {{ inventory_folder }}
+        {%- else -%}
+        {{ inventory_tmp_folder.path }}
+        {%- endif -%}
+        /{{ bmc_host }}-vendor-bios-attributes.yaml
+
+  - name: New Generate Inventories path
+    when: true
+    ansible.builtin.debug:
+      msg: |-
+        Find the auto-generate inventory at{{" "}}
+        {%- if inventory_folder is defined %}
+        {{ inventory_folder }}
+        {%- else %}
+        {{ inventory_tmp_folder.path }}
+        {%- endif %}
+        /{{ bmc_host }}-vendor-bios-attributes.yaml

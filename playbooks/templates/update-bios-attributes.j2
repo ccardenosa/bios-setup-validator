@@ -1,0 +1,54 @@
+{%- macro update_bios_attributes_using_remote_bmc_values(schema, setup_bios_attributes, cur_bios_atts) -%}
+{%- set ctx = {} -%}
+{%- for attribute,details in setup_bios_attributes.items() -%}
+{%-   if details is mapping -%}
+{{      update_value(ctx, schema, attribute, details, cur_bios_atts) }}
+{%-   elif details is sequence and details is not string -%}
+{%-     set ns = namespace(l=[]) -%}
+{%-     for it in details -%}
+{%-       set tmp_ctx = {} -%}
+{{        update_value(tmp_ctx, schema, attribute, it, cur_bios_atts) }}
+{%-       if tmp_ctx -%}
+{%-         set ns.l = ns.l + [ tmp_ctx[attribute] ] -%}
+{%-       endif -%}
+{%-     endfor -%}
+{%-     if ns.l -%}
+{%-       set _ = ctx.update({ attribute: ns.l }) -%}
+{%-     endif -%}
+{%-   else -%}
+{%-     set m = {"vendor_label": "UNDEFINED", "value": "UNDEFINED"} -%}
+{%-     set _ = ctx.update({ attribute: m }) -%}
+{%-   endif -%}
+{%- endfor -%}
+{{ ctx }}
+{%- endmacro -%}
+
+{%- macro update_value(ctx, schema, attribute, details, cur_bios_atts) -%}
+{%- set m = {} -%}
+{%- if "vendor_label" not in details or details.vendor_label == None or details.vendor_label == '' -%}
+{%-   set m = {"vendor_label": "UNDEFINED", "value": "UNDEFINED"} -%}
+{%- elif details.vendor_label not in cur_bios_atts -%}
+{%-   if details.vendor_label not in schema -%}
+{%-     set m = {"vendor_label": details.vendor_label + "_NOT_FOUND_PLEASE_CHECK_BIOS_SCHEMA", "value": "UNDEFINED"} -%}
+{%-   elif 'Hidden' in schema[details.vendor_label] and schema[details.vendor_label].Hidden and 'DefaultValue' in schema[details.vendor_label] -%}
+{%-     set m = {"vendor_label": details.vendor_label, "value": schema[details.vendor_label].DefaultValue, "bios_schema_readonly": schema[details.vendor_label]} -%}
+{%-   else -%}
+{%-     set m = {"vendor_label": details.vendor_label, "value": "UNDEFINED", "bios_schema_readonly": schema[details.vendor_label]} -%}
+{%-   endif -%}
+{%- else -%}
+{%-   set m = {"vendor_label": details.vendor_label, "value": cur_bios_atts[details.vendor_label], "bios_schema_readonly": schema[details.vendor_label]} -%}
+{%- endif -%}
+{%- if m -%}
+{%-   set _ = ctx.update({ attribute: m }) -%}
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro get_system_inventory_details(inventory, details) -%}
+{%- set ctx = { "DetailsGatheredAt": ('%Y-%m-%d_%H%M%S' | strftime) } -%}
+{%- for item in details -%}
+{%-   if item in inventory -%}
+{%-     set _ = ctx.update({item: inventory[item]}) -%}
+{%-   endif -%}
+{%- endfor -%}
+{{ ctx }}
+{%- endmacro -%}

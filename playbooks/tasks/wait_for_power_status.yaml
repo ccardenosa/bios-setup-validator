@@ -1,0 +1,23 @@
+---
+- name: Waiting for power status is {{ wait_for_power }}
+  ignore_errors: true
+  community.general.redfish_info:
+    category: Systems
+    command: GetSystemInventory
+    baseuri: "{{ bmc_host }}"
+    username: "{{ bmc_username }}"
+    password: "{{ bmc_password }}"
+  register: power_status
+  until: wait_for_power in power_is
+  # Wait 2 min, checking each 20 seconds
+  delay: 20
+  retries: 6
+  vars:
+    power_is: "{{ (power_status | community.general.json_query(power_status_jq)) | first }}"
+    power_status_jq: 'redfish_facts.system.entries[*][?PowerState!=null].PowerState'
+
+- name: Print System Power status fetched information
+  ansible.builtin.debug:
+    msg: "The system is {{(power_status | community.general.json_query(power_status_jq)) | first}}"
+  vars:
+    power_status_jq: 'redfish_facts.system.entries[*][?PowerState!=null].PowerState'

@@ -1,0 +1,111 @@
+---
+- name: BIOS setup
+  hosts: localhost
+  gather_facts: false
+  vars:
+    usage_message:
+      - "Usage: "
+      - " ansible-playbook playbooks/main.yaml [--tags help]                                         : This message (default)"
+      - " ansible-playbook playbooks/main.yaml --tags generate-inventory-template                    : Create a template with all recommended BIOS attribute"
+      - "   [--extra-vars 'inventory_folder=/your/path                                               :   - [OPTIONAL] The directory path where you want to dump the auto generate inventoy template"
+      - "                  label_id=<label string>'] (default: 'bmc')                                :   - [OPTIONAL] Set a vendor or model label to indentify your inventoty [i.e.: `dell`, `zt-systems`, `Proteus`...]"
+      - " ansible-playbook playbooks/main.yaml -i inventory --tags show-current-values               : Show current BIOS attribute values"
+      - " ansible-playbook playbooks/main.yaml -i inventory --tags get-bios-attributes-jsonschema    : Get BIOS attributes JSON Schemas"
+      - "   [--extra-vars 'schemas_folder=/your/path']                                               : The directory path where you want to store the JSON schemas from remote BMC system"
+      - " ansible-playbook playbooks/main.yaml -i inventory --tags get-current-values                : Get current BIOS attribute values"
+      - "   [--extra-vars 'inventory_folder=/your/path                                               :   - [OPTIONAL] The directory path where you want to dump the auto generate inventoy from remote system"
+      - "                  schemas_folder=/your/path']                                               :   - [OPTIONAL] The directory path you want to upload previous downlad JSON schemas from"
+      - " ansible-playbook playbooks/main.yaml -i inventory --tags verify-values                     : Verify BIOS attribute values"
+      - "   [--extra-vars 'schemas_folder=/your/path']                                               :   - [OPTIONAL] The directory path you want to upload previous downlad JSON schemas from"
+      - " ansible-playbook playbooks/main.yaml -i inventory --tags reconcile-bios-values             : Reconcile BIOS attribute values from local inventory to remote system BIOS"
+      - "   [--extra-vars 'schemas_folder=/your/path                                                 :   - [OPTIONAL] The directory path you want to upload previous downlad JSON schemas from"
+      - "                  skip_inventory_verification=<no|yes> (default: no)                        :   - [OPTIONAL] Run local inventory verifification before proceed with the reconciliation"
+      - "                  resource_id=<Target System ID>']                                          :   - [OPTIONAL] ID of the System, Manager or Chassis to modify"
+
+  tasks:
+
+  #################################################################################################
+  # Generate inventory template:
+  #################################################################################################
+
+    - name: Generate an inventory with the recommended BIOS attribute
+      when: "'generate-inventory-template' in ansible_run_tags"
+      tags:
+        - generate-inventory-template
+      ansible.builtin.include_tasks: ./tasks/generate_inventory_template.yaml
+
+    - name: Exiting...
+      when: "'generate-inventory-template' in ansible_run_tags"
+      delegate_to: localhost
+      tags:
+        - help
+      ansible.builtin.meta: end_host
+
+
+  #################################################################################################
+  # Usage: (default)
+  #################################################################################################
+    - name: Usage
+      delegate_to: localhost
+      tags:
+        - help
+      ansible.builtin.debug:
+        msg: "{{ usage_message }}"
+
+    - name: Exiting...
+      delegate_to: localhost
+      tags:
+        - help
+      ansible.builtin.meta: end_host
+
+- name: BIOS setup
+  hosts:
+    - bmc
+  gather_facts: false
+  vars:
+    valid_tags:
+      - generate-inventory-template
+      - show-current-values
+      - get-bios-attributes-jsonschema
+      - get-current-values
+      - verify-values
+      - reconcile-bios-values
+
+  tasks:
+
+  #################################################################################################
+  # Operations:
+  #################################################################################################
+    - name: Select operation
+      when: "(valid_tags | intersect(ansible_run_tags)) | length > 0"
+      delegate_to: localhost
+      block:
+        - name: Show current BIOS attribute values
+          when: "'show-current-values' in ansible_run_tags"
+          tags:
+            - show-current-values
+          ansible.builtin.include_tasks: ./tasks/show_current_values.yaml
+
+        - name: Get BIOS attributes JSON Schema
+          when: "'get-bios-attributes-jsonschema' in ansible_run_tags"
+          tags:
+            - get-bios-attributes-jsonschema
+          ansible.builtin.include_tasks: ./tasks/get_bios_attributes_jsonschema.yaml
+
+        - name: Get current BIOS attribute values
+          when: "'get-current-values' in ansible_run_tags"
+          tags:
+            - get-current-values
+          ansible.builtin.include_tasks: ./tasks/get_current_values.yaml
+
+        - name: Verify BIOS attribute values
+          when: "'verify-values' in ansible_run_tags"
+          tags:
+            - verify-values
+          ansible.builtin.include_tasks: ./tasks/validate_bios_attribute_values.yaml
+
+        - name: Reconcile BIOS attribute values from local inventory to remote system BIOS
+          when: "'reconcile-bios-values' in ansible_run_tags"
+          tags:
+            - reconcile-bios-values
+          ansible.builtin.include_tasks: ./tasks/reconcile_bios_attribute_values.yaml

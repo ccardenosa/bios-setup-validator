@@ -1,0 +1,5 @@
+---
+collections:
+  - name: https://github.com/ccardenosa/community.general.git
+    type: git
+    version: main
