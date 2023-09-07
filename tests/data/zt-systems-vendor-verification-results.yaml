@@ -1,0 +1,76 @@
+verification:
+  result: FAIL
+  wrong_bios_attributes:
+    Boot_Mode:
+      message:
+      - - '`value` field must be defined. Found:'
+        - vendor_label: CSM007
+      - - '`value` field must be defined. Found:'
+        - vendor_label: CSM008
+      - - '`value` field must be defined. Found:'
+        - vendor_label: CSM009
+      - - '`value` field must be defined. Found:'
+        - vendor_label: CSM010
+    C1E:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS006
+    CPU_Power_and_Performance_Policy:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS00A
+    Configurable_TDP_Level:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS011
+    Energy_Efficient_Turbo:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS01A
+    Enhanced_Intel_SpeedStep_Tech:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS001
+    Hardware_P_States:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS003
+    HyperThreading:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PRSS011
+    HyperTransport:
+      message: Wrong type. The expected type must be an Object or list of Objects
+        having both `vendor_label` and `value` field defined
+    Intel_Configurable_TDP:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Intel_Turbo_Boost_Technology:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Package_C_State:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS007
+    Performance_P_limit:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Processor_C6:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS005
+    Sub_NUMA_Clustering:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Uncore_Frequency:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: KTIS001
+    Uncore_Frequency_Scaling:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: PMS014

@@ -1,0 +1,46 @@
+verification:
+  result: FAIL
+  wrong_bios_attributes:
+    C1E:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: ProcC1E
+    Configurable_TDP_Level:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: ProcConfigTdp
+    Energy_Efficient_Turbo:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Enhanced_Intel_SpeedStep_Tech:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Intel_Configurable_TDP:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Intel_Turbo_Boost_Technology:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: null
+    Package_C_State:
+      message: Wrong type. The expected type must be an Object or list of Objects
+        having both `vendor_label` and `value` field defined
+    Performance_P_limit:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: ProcCStates
+    Processor_C6:
+      message:
+      - '`vendor_label` field must be defined. Found:'
+      - value: null
+    Uncore_Frequency:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: UncoreFrequency
+    Uncore_Frequency_Scaling:
+      message:
+      - '`value` field must be defined. Found:'
+      - vendor_label: CpuInterconnectBusLinkPower
