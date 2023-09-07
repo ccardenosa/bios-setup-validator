@@ -30,8 +30,8 @@ The **BIOS** (Basic Input/Output System) is the mechanism through which we can a
 
 In this article we will see:
 
-- What are the BIOS attributes to pay attention to for the Telco case,
-- How to find out what that field is named for the corresponding vendor,
+- What are the BIOS attributes to pay attention to for the Telco case.
+- How to find out what that field is named for the corresponding vendor.
 - How to know what values are set and,
 - How to configure it with the appropriate values.
 - Finally we will show how to validate that our configuration is correct.
@@ -64,7 +64,7 @@ So, its configuration depends on your specific hardware and network requirements
 | [CPU Power and Performance Policy](https://techlibrary.hpe.com/docs/iss/proliant_uefi/UEFI_Edgeline_103117/GUID-D7147C7F-2016-0901-0A69-000000000BC2.html) | Performance (or Maximum Performance) | **Maximum Performance** — Provides the highest performance and lowest latency. Use this setting for environments that are not sensitive to power consumption.<br/><br/>**Balanced Performance** — Provides optimum power efficiency and is recommended for most environments.<br/><br/>**Balanced Power** — Provides optimum power efficiency based on server utilization.<br/><br/>**Power Savings Mode** — Provides power savings for environments that are power sensitive and can accept reduced performance. |
 | [Uncore Frequency Scaling](https://www.kernel.org/doc/html/latest/admin-guide/pm/intel_uncore_frequency_scaling.html) | Disabled | "[Uncore](https://en.wikipedia.org/wiki/Uncore)" is a term used by Intel to describe the functions of a microprocessor that are not in the core, but which must be closely connected to the core to achieve high performance.<br/><br/>The core contains the components of the processor involved in executing instructions, including the [ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit), [FPU](https://en.wikipedia.org/wiki/Floating_point_unit), [L1](https://en.wikipedia.org/wiki/L1_cache) and [L2](https://en.wikipedia.org/wiki/L2_cache) cache.<br/><br/>Uncore functions include [QPI](https://en.wikipedia.org/wiki/Intel_QuickPath_Interconnect) controllers, [L3 cache](https://en.wikipedia.org/wiki/L3_cache), [snoop agent](https://en.wikipedia.org/wiki/Memory_coherence) [pipeline](https://en.wikipedia.org/wiki/Instruction_pipeline), on-die [memory controller](https://en.wikipedia.org/wiki/Memory_controller), on-die [PCI Express Root Complex](https://en.wikipedia.org/wiki/PCI_Express_Root_Complex), and [Thunderbolt controller](https://en.wikipedia.org/wiki/Thunderbolt_(interface)).<br/><br/>Use the _Uncore Frequency Scaling_ option to control the frequency scaling of the processor's internal busses. |
 | [Uncore](https://en.wikipedia.org/wiki/Uncore) Frequency | Maximum | Uncore frequency is the frequency of the non-core parts of the CPU, ie cache, memory controller, etc. It's also known as ringbus frequency. |
-| Performance P-limit | Enabled | _Package C-state limit_<br/><br/>It allows the processor to enter lower power states when idle.<br/><br/>When set to Enabled (OS controlled) or when set to Autonomous (if Hardware controlled is supported), the processor can operate in all available Power States to save power, but may increase memory latency and frequency jitter. |
+| Performance P-limit | Enabled | _Package C-state limit_ <br/><br/>It allows the processor to enter lower power states when idle.<br/><br/>When set to Enabled (OS controlled) or when set to Autonomous (if Hardware controlled is supported), the processor can operate in all available Power States to save power, but may increase memory latency and frequency jitter. |
 | [Enhanced Intel SpeedStep (R) Tech (aka P-States)](https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/12th-generation-intel-core-processors-datasheet-volume-1-of-2/006/enhanced-intel-speedstep-technology_1/) | Enabled | [Power Management States: What is a S-state and a P-state?](https://www.techjunkie.com/power-management-states-s-state-p-state/)<br/><br/>Not all processor manufacturers refer to a performance state as a P-state. Intel actually calls it SpeedStep (though this trademark expired in 2012), but AMD might call them PowerNow! or Cool’n’Quiet in their processors. SpeedStep (and other brands’ similar implementations) is, in essence, a way to dynamically scale the processor’s P-states through software. |
 | [Intel(R) Turbo Boost Technology](https://edc.intel.com/content/www/us/en/design/ipla/software-development-platforms/client/platforms/alder-lake-desktop/12th-generation-intel-core-processors-datasheet-volume-1-of-2/006/intel-turbo-boost-technology-2-0/) | Disabled in NFV deployments that require deterministic performance.<br/><br/>Enabled in all other scenarios. | It allows the processor to opportunistically increase a set of CPU cores higher than the CPU’s rated base clock speed based on the number of active cores, power and thermal headroom in a system.<br/><br/>It is important to understand that **this is not a guarantee of a CPU frequency increase**, rather it is enabling the opportunity to run at a higher clock frequency.<br/><br/>The performance of Turbo Mode increases when fewer cores are active, dynamic power management is enabled, and the system is running below the thermal design limits for the platform.<br/><br/>The Intel® Turbo Boost Technology 2.0 allows the processor core to opportunistically and automatically run faster than the processor core base frequency if it is operating below power, temperature, and current limits. This feature is designed to increase the performance of both multi-threaded and single-threaded workloads.<br/><br/>It increases the ratio of application power towards Processor Base Power (a.k.a TDP) and also allows to increase power above Processor Base Power (a.k.a TDP) as high as PL2 for short periods of time. Thus, thermal solutions and platform cooling that are designed to less than thermal design guidance might experience thermal and performance issues since more applications will tend to run at the maximum power limit for significant periods of time. |
 | Intel Configurable [TDP](https://www.intel.com/content/www/us/en/support/articles/000055611/processors.html) (Processor Base Power) | Enabled | Enables Thermal Design Power (TDP) for the CPU (See next one). |
@@ -432,57 +432,57 @@ $ cat opt/bmc-vendor-inventories/zt-systems/zt-systems-bios-attributes.yaml
 zt_systems:
   vars:
     bios_attributes:
-  	Boot_Mode:
-    	   value: ''
-    	   vendor_label: ''
-  	C1E:
-    	   value: ''
-    	   vendor_label: ''
-  	CPU_Power_and_Performance_Policy:
-    	   value: ''
-    	   vendor_label: ''
-  	Configurable_TDP_Level:
-    	   value: ''
-    	   vendor_label: ''
-  	Energy_Efficient_Turbo:
-    	   value: ''
-    	   vendor_label: ''
-  	Enhanced_Intel_SpeedStep_Tech:
-    	   value: ''
-    	   vendor_label: ''
-  	Hardware_P_States:
-    	   value: ''
-    	   vendor_label: ''
-  	HyperThreading:
-    	   value: ''
-    	   vendor_label: ''
-  	HyperTransport:
-    	   value: ''
-    	   vendor_label: ''
-  	Intel_Configurable_TDP:
-    	   value: ''
-    	   vendor_label: ''
-  	Intel_Turbo_Boost_Technology:
-    	   value: ''
-    	   vendor_label: ''
-  	Package_C_State:
-    	   value: ''
-    	   vendor_label: ''
-  	Performance_P_limit:
-    	   value: ''
-    	   vendor_label: ''
-  	Processor_C6:
-    	   value: ''
-    	   vendor_label: ''
-  	Sub_NUMA_Clustering:
-    	   value: ''
-    	   vendor_label: ''
-  	Uncore_Frequency:
-    	   value: ''
-    	   vendor_label: ''
-  	Uncore_Frequency_Scaling:
-    	   value: ''
-    	   vendor_label: ''
+      Boot_Mode:
+        value: ''
+        vendor_label: ''
+      C1E:
+        value: ''
+        vendor_label: ''
+      CPU_Power_and_Performance_Policy:
+        value: ''
+        vendor_label: ''
+      Configurable_TDP_Level:
+        value: ''
+        vendor_label: ''
+      Energy_Efficient_Turbo:
+        value: ''
+        vendor_label: ''
+      Enhanced_Intel_SpeedStep_Tech:
+        value: ''
+        vendor_label: ''
+      Hardware_P_States:
+        value: ''
+        vendor_label: ''
+      HyperThreading:
+        value: ''
+        vendor_label: ''
+      HyperTransport:
+        value: ''
+        vendor_label: ''
+      Intel_Configurable_TDP:
+        value: ''
+        vendor_label: ''
+      Intel_Turbo_Boost_Technology:
+        value: ''
+        vendor_label: ''
+      Package_C_State:
+        value: ''
+        vendor_label: ''
+      Performance_P_limit:
+        value: ''
+        vendor_label: ''
+      Processor_C6:
+        value: ''
+        vendor_label: ''
+      Sub_NUMA_Clustering:
+        value: ''
+        vendor_label: ''
+      Uncore_Frequency:
+        value: ''
+        vendor_label: ''
+      Uncore_Frequency_Scaling:
+        value: ''
+        vendor_label: ''
 ```
 
 The task of defining these labels can be tedious, but there is no other option than to access the BIOS schema and search and define these attributes as our provider has labeled them. The result of this task can be seen reflected in the [table shown above](#bios-attributes-by-vendor).
@@ -535,38 +535,38 @@ zt_systems:
   vars:
     bios_attributes:
       HyperThreading:
-    	  vendor_label: PRSS011
-  	Boot_Mode:
-     	  - vendor_label: CSM007
-    	  - vendor_label: CSM008
-    	  - vendor_label: CSM009
-    	  - vendor_label: CSM010
-  	HyperTransport:
-  	CPU_Power_and_Performance_Policy:
-    	  vendor_label: PMS00A
-  	Uncore_Frequency_Scaling:
-    	  vendor_label: PMS014
-  	Uncore_Frequency:
-    	  vendor_label: KTIS001
-  	Performance_P_limit:
-  	Enhanced_Intel_SpeedStep_Tech:
-    	  vendor_label: PMS001
-  	Intel_Turbo_Boost_Technology:
-  	Intel_Configurable_TDP:
-  	Configurable_TDP_Level:
-    	  vendor_label: PMS011
-  	Energy_Efficient_Turbo:
-    	  vendor_label: PMS01A
-  	Hardware_P_States:
-    	  vendor_label: PMS003
-  	Package_C_State:
-    	  vendor_label: PMS007
-  	C1E:
-    	  vendor_label: PMS006
-  	Processor_C6:
-    	  vendor_label: PMS005
-  	Sub_NUMA_Clustering:
-    	  vendor_label:
+        vendor_label: PRSS011
+      Boot_Mode:
+        - vendor_label: CSM007
+        - vendor_label: CSM008
+        - vendor_label: CSM009
+        - vendor_label: CSM010
+      HyperTransport:
+      CPU_Power_and_Performance_Policy:
+        vendor_label: PMS00A
+      Uncore_Frequency_Scaling:
+        vendor_label: PMS014
+      Uncore_Frequency:
+        vendor_label: KTIS001
+      Performance_P_limit:
+      Enhanced_Intel_SpeedStep_Tech:
+        vendor_label: PMS001
+      Intel_Turbo_Boost_Technology:
+      Intel_Configurable_TDP:
+      Configurable_TDP_Level:
+        vendor_label: PMS011
+      Energy_Efficient_Turbo:
+        vendor_label: PMS01A
+      Hardware_P_States:
+        vendor_label: PMS003
+      Package_C_State:
+        vendor_label: PMS007
+      C1E:
+        vendor_label: PMS006
+      Processor_C6:
+        vendor_label: PMS005
+      Sub_NUMA_Clustering:
+        vendor_label:
 ```
 
 Please, note that I have deliberately left blank those attributes that I have not been able to define (i.e.: `HyperTransport` or `Performance_P_limit`), based on the available documentation. Another thing to note is that, as you can see in the inventory, it would be interesting to group certain attributes that are related, like the `Boot_Mode` in this case.
@@ -636,13 +636,22 @@ vendor_for_zt_sno3_system:
       Intel_Turbo_Boost_Technology:
         value: UNDEFINED
         vendor_label: UNDEFINED
+    system_details:
+      BiosVersion: '0.29'
+      DetailsGatheredAt: 2023-09-07_125229
+      Id: Self
+      Manufacturer: ZTSYSTEMS
+      Model: ' '
+      Name: Proteus I_Mix
+      PartNumber: PA-00415-001
+      SerialNumber: 20739971N009
 ```
 
-As we can see, those attributes that we have not defined will appear as `UNDEFINED`, so that we become aware that they are not going to be used and we must eliminate them from our inventory. As for those that are defined, the schema is attached so that we can fully understand the values it can take.
+As we can see, those attributes that we have not defined (or mispelled) will appear as `UNDEFINED`, so that we are aware that we may not have written them correctly or that they are not going to be used and we should remove them from our inventory. As for those that are defined, the schema is attached so that we can fully understand the values it can take. In addition, relevant information about the system used for the query is added, as can be seen under the tag `system_details `.
 
 Once the information is analyzed, we can update our BIOS attribute values accordingly and get rid of all those attributes that are not defined:
 
-> **Note**: `bios_schema_readonly` is just for documentation purposes. We can keep it in case we need to adjust any attribute in the future.
+> **Note**: both `bios_schema_readonly` and `system_details` are just for documentation purposes. We can keep them in case we need to adjust any attribute in the future.
 
 ```
 $ cat opt/bmc-vendor-inventories/zt-systems/zt-systems-bios-attributes.yaml
@@ -728,7 +737,7 @@ $ ansible-playbook playbooks/main.yaml \
 
 The other great advantage of following this method will be to be able to validate that the BIOS attributes of our servers are correctly configured.
 
-Let's imagine that we are informed that a server from the same vendor, model and BIOS version in our inventory is suffering from performance problems. One of the first things we could quickly and easily check would be if its BIOS is set correctly. To do this, we only had to create an inventory for these systems, and using the parameters that we know are correct:
+Let's imagine that we are informed that a server from the same vendor, model and BIOS version in our inventory is suffering from performance problems. One of the first things we could quickly and easily check would be if its BIOS attributes are set correctly. To do this, we only had to create an inventory for these systems, and using the parameters that we know are correct ...
 
 ```
 $ cp /opt/bmc-vendor-inventories/zt-systems/ \
@@ -740,7 +749,7 @@ $ tree /opt/issue-investigation-bmc-vendor-inventory
     └── zt-systems-bmc-hosts.yaml
 ```
 
-Let’s modify the host inventory to point to the buggy one:
+... modify the host inventory to point to the buggy one:
 
 ```
 $ cat /opt/issue-investigation-bmc-vendor-inventory/zt-systems-bmc-hosts.yaml
@@ -805,6 +814,4 @@ And there it is: the expected values for `CPU_Power_and_Performance_Policy` BIOS
 
 The previous example is illustrative of how detrimental it can be for the optimal performance of a system to configure a BIOS attribute in an inappropriate way for our use case.
 
-Since guaranteeing the correct configuration of the BIOS attributes of our fleet of servers in the Telco field is so critical and that each vendor develops their hardware differently giving rise to different possibilities when it comes to getting the best out of systems.
-
-Having a detailed knowledge of where to find the right information as well as being able to automate the configuration process to the greatest degree possible, is a must if we want to avoid many difficult-to-trace problems later.
+Since guaranteeing the correct configuration of the BIOS attributes of our fleet of servers in the Telco field is so critical and that each vendor develops their hardware differently giving rise to different possibilities when it comes to getting the best out of systems, having a detailed knowledge of where to find the right information as well as being able to automate the configuration process to the greatest degree possible, is a must if we want to avoid many difficult-to-trace problems later.
