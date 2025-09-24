@@ -18,7 +18,7 @@ function get_bios_attributes {
     bios_attr_jsonschema_uri=$(${curl_}${bios_attr_uri} \
         | jq -r '."Location"[] | select(."Language" == "en" or ."Language" == "en-US")."Uri"')
 
-    bios_attr_tmpfile=$(mktemp -t bios_attr)
+    bios_attr_tmpfile=$(mktemp -t bios_attr_XXXXXXXX)
     ${curl_}${bios_attr_jsonschema_uri} > $bios_attr_tmpfile
     if [[ "$(file ${bios_attr_tmpfile} | grep ':.*gzip compressed data')" == "" ]]; then
         cat ${bios_attr_tmpfile} \
